@@ -90,7 +90,7 @@
             this.textBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.4D), Telerik.Reporting.Drawing.Unit.Cm(2D));
             this.textBox1.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox1.Style.Font.Bold = true;
-            this.textBox1.Style.Font.Name = "HY견고딕";
+            this.textBox1.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox1.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(24D);
             this.textBox1.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox1.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -119,7 +119,7 @@
             this.textBox9.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox9.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox9.Style.Font.Bold = true;
-            this.textBox9.Style.Font.Name = "HY견고딕";
+            this.textBox9.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox9.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox9.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox9.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -137,7 +137,7 @@
             this.textBox10.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox10.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox10.Style.Font.Bold = true;
-            this.textBox10.Style.Font.Name = "HY견고딕";
+            this.textBox10.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox10.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(14D);
             this.textBox10.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox10.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -182,7 +182,7 @@
             this.textBox2.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox2.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox2.Style.Font.Bold = true;
-            this.textBox2.Style.Font.Name = "HY견고딕";
+            this.textBox2.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox2.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox2.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox2.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -200,7 +200,7 @@
             this.textBox3.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox3.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox3.Style.Font.Bold = true;
-            this.textBox3.Style.Font.Name = "HY견고딕";
+            this.textBox3.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox3.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(14D);
             this.textBox3.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox3.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -229,7 +229,7 @@
             this.textBox4.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox4.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox4.Style.Font.Bold = true;
-            this.textBox4.Style.Font.Name = "HY견고딕";
+            this.textBox4.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox4.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox4.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox4.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -247,7 +247,7 @@
             this.textBox11.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox11.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox11.Style.Font.Bold = true;
-            this.textBox11.Style.Font.Name = "HY견고딕";
+            this.textBox11.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox11.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(14D);
             this.textBox11.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox11.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -276,7 +276,7 @@
             this.textBox12.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox12.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox12.Style.Font.Bold = true;
-            this.textBox12.Style.Font.Name = "HY견고딕";
+            this.textBox12.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox12.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox12.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox12.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -294,7 +294,7 @@
             this.textBox13.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox13.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox13.Style.Font.Bold = true;
-            this.textBox13.Style.Font.Name = "HY견고딕";
+            this.textBox13.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox13.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
             this.textBox13.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox13.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -323,7 +323,7 @@
             this.textBox14.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox14.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox14.Style.Font.Bold = true;
-            this.textBox14.Style.Font.Name = "HY견고딕";
+            this.textBox14.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox14.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox14.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox14.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -341,7 +341,7 @@
             this.textBox15.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox15.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox15.Style.Font.Bold = true;
-            this.textBox15.Style.Font.Name = "HY견고딕";
+            this.textBox15.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox15.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox15.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox15.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -372,7 +372,7 @@
             this.textBox18.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox18.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox18.Style.Font.Bold = true;
-            this.textBox18.Style.Font.Name = "HY견고딕";
+            this.textBox18.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox18.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox18.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox18.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -390,7 +390,7 @@
             this.textBox19.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox19.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox19.Style.Font.Bold = true;
-            this.textBox19.Style.Font.Name = "HY견고딕";
+            this.textBox19.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox19.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox19.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox19.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -407,7 +407,7 @@
             this.textBox20.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox20.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox20.Style.Font.Bold = true;
-            this.textBox20.Style.Font.Name = "HY견고딕";
+            this.textBox20.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox20.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(11D);
             this.textBox20.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox20.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
@@ -424,7 +424,7 @@
             this.textBox21.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox21.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.textBox21.Style.Font.Bold = true;
-            this.textBox21.Style.Font.Name = "HY견고딕";
+            this.textBox21.Style.Font.Name = "Microsoft Sans Serif";
             this.textBox21.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
             this.textBox21.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox21.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);

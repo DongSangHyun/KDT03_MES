@@ -1,8 +1,8 @@
 ﻿#region < HEADER AREA >
 // *---------------------------------------------------------------------------------------------*
-//   Form ID      : MM_StockMM
-//   Form Name    : 자재 재고관리 
-//   Name Space   : DC_MM
+//   Form ID      : MM_StockMMrec
+//   Form Name    : 자재 입출 이력 현황
+//   Name Space   : KDTB_FORMS
 //   Created Date : 2023/05
 //   Made By      : DSH
 //   Description  : 
@@ -24,7 +24,7 @@ using Telerik.Reporting;
 
 namespace KDTB_FORMS
 {
-    public partial class MM_StockMM : DC00_WinForm.BaseMDIChildForm
+    public partial class MM_StockMMrec : DC00_WinForm.BaseMDIChildForm
     {
 
         #region < MEMBER AREA >
@@ -36,7 +36,7 @@ namespace KDTB_FORMS
 
 
         #region < CONSTRUCTOR >
-        public MM_StockMM()
+        public MM_StockMMrec()
         {
             InitializeComponent();
         }
@@ -44,22 +44,24 @@ namespace KDTB_FORMS
 
 
         #region < FORM EVENTS >
-        private void MM_StockMM_Load(object sender, EventArgs e)
+        private void MM_StockMMrec_Load(object sender, EventArgs e)
         {
             #region ▶ GRID ◀
             _GridUtil.InitializeGrid(this.grid1);
-            _GridUtil.InitColumnUltraGrid(grid1, "PLANTCODE", "공장",     GridColDataType_emu.VarChar,     120,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ITEMCODE",  "품목",     GridColDataType_emu.VarChar,     140,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",  "품목명",   GridColDataType_emu.VarChar,     140,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "MATLOTNO",  "LOTNO",    GridColDataType_emu.VarChar,     120,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "WHCODE",    "입고창고", GridColDataType_emu.VarChar,     120,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "STOCKQTY",  "재고수량", GridColDataType_emu.Double,      100,  Infragistics.Win.HAlign.Right,   true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "UNITCODE",  "단위",     GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "CUSTCODE",  "거래처",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "CUSTNAME",  "거래처명", GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "INDATE",    "입고일자", GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "MAKER",     "등록자",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "MAKEDATE",  "등록일시", GridColDataType_emu.DateTime24,  150,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "PLANTCODE",  "공장",       GridColDataType_emu.VarChar,     120,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "MATLOTNO",   "LOTNO",      GridColDataType_emu.VarChar,     200,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ITEMCODE",   "품목",       GridColDataType_emu.VarChar,     150,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",   "품목명",     GridColDataType_emu.VarChar,     150,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "INOUTDATE",  "입/출일자",  GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "WHCODE",     "창고",       GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "INOUTFLAG",  "입출구분",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "INOUTCODE",  "입출유형",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "INOUTQTY",   "입출수량",   GridColDataType_emu.Double,      100,  Infragistics.Win.HAlign.Right,   true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "UNITCODE",   "단위",       GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "INOUTWORKER","입출등록자", GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "PONO",       "발주번호",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "MAKER",      "등록자",     GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "MAKEDATE",   "등록일시",   GridColDataType_emu.DateTime24,  180,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.SetInitUltraGridBind(grid1);
             #endregion
 
@@ -74,6 +76,11 @@ namespace KDTB_FORMS
             rtnDtTemp = Common.StandardCODE("WHCODE");     //입고 창고
             UltraGridUtil.SetComboUltraGrid(this.grid1, "WHCODE", rtnDtTemp);
 
+            rtnDtTemp = Common.StandardCODE("INOUTCODE");  //입출 유형
+            UltraGridUtil.SetComboUltraGrid(this.grid1, "INOUTCODE", rtnDtTemp);
+
+            rtnDtTemp = Common.StandardCODE("INOUTFLAG");  //입출 구분
+            UltraGridUtil.SetComboUltraGrid(this.grid1, "INOUTFLAG", rtnDtTemp);
             // 품목코드 
             //FP  : 완제품
             //OM  : 외주가공품
@@ -84,12 +91,12 @@ namespace KDTB_FORMS
             Common.FillComboboxMaster(this.cboItemCode, rtnDtTemp);
 
             #endregion
-
-            #region ▶ POP-UP ◀
-            #endregion
+             
 
             #region ▶ ENTER-MOVE ◀
-            cboPlantCode.Value = plantCode;
+            cboPlantCode.Value = LoginInfo.PlantCode;
+
+            dtpStart.Value = DateTime.Now.ToString("yyyy-MM-01");
             #endregion
         }
         #endregion
@@ -107,14 +114,18 @@ namespace KDTB_FORMS
             {
                 base.DoInquire();
                 _GridUtil.Grid_Clear(grid1);
-                string sPlantCode      = DBHelper.nvlString(this.cboPlantCode.Value);
-                string sItemCode       = DBHelper.nvlString(this.cboItemCode.Value);
-                string sLotNo          = DBHelper.nvlString(txtLotNo.Text);
+                string sPlantCode  = DBHelper.nvlString(this.cboPlantCode.Value);
+                string sItemCode   = DBHelper.nvlString(this.cboItemCode.Value);
+                string sLotNo      = DBHelper.nvlString(txtLotNo.Text);
+                string sStartdate  = string.Format("{0:yyyy-MM-dd}", dtpStart.Value);
+                string sEndDate    = string.Format("{0:yyyy-MM-dd}", dtpEnd.Value);
 
-                rtnDtTemp = helper.FillTable("SP00_MM_StockMM_S1", CommandType.StoredProcedure
-                                    , helper.CreateParameter("PLANTCODE",   sPlantCode)
-                                    , helper.CreateParameter("ITEMCODE",    sItemCode)
-                                    , helper.CreateParameter("LOTNO",       sLotNo)
+                rtnDtTemp = helper.FillTable("SP00_MM_StockMMrec_S1", CommandType.StoredProcedure
+                                    , helper.CreateParameter("@PLANTCODE", sPlantCode)
+                                    , helper.CreateParameter("@ITEMCODE",  sItemCode)
+                                    , helper.CreateParameter("@LOTNO",     sLotNo)
+                                    , helper.CreateParameter("@STARTDATE", sStartdate)
+                                    , helper.CreateParameter("@ENDDATE",   sEndDate)
                                     );
                 //
 
@@ -122,6 +133,10 @@ namespace KDTB_FORMS
                 // 
                 ClosePrgForm();
                 grid1.DataSource = rtnDtTemp;
+                if (grid1.Rows.Count==0)
+                {
+                    ShowDialog("조회 할 데이터가 없습니다.");
+                }
             }
             catch (Exception ex)
             {
