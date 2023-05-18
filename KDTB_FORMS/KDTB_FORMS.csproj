@@ -99,6 +99,12 @@
     <Compile Include="MM_STockMMrec[자재 입출고 이력].designer.cs">
       <DependentUpon>MM_STockMMrec[자재 입출고 이력].cs</DependentUpon>
     </Compile>
+    <Compile Include="MM_STockOut[자재 생산출고 등록].cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MM_STockOut[자재 생산출고 등록].designer.cs">
+      <DependentUpon>MM_STockOut[자재 생산출고 등록].cs</DependentUpon>
+    </Compile>
     <Compile Include="MM_STockMM[자재 재고관리].cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM_STockMMrec[자재 입출고 이력].resx">
       <DependentUpon>MM_STockMMrec[자재 입출고 이력].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MM_STockOut[자재 생산출고 등록].resx">
+      <DependentUpon>MM_STockOut[자재 생산출고 등록].cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MM_STockMM[자재 재고관리].resx">
       <DependentUpon>MM_STockMM[자재 재고관리].cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace KDTB_FORMS
 {
-    partial class MM_StockMMrec
+    partial class MM_StockOut
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -43,10 +43,6 @@
             Infragistics.Win.Appearance appearance59 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance61 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance20 = new Infragistics.Win.Appearance();
-            Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton dateButton3 = new Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton();
-            Infragistics.Win.Appearance appearance18 = new Infragistics.Win.Appearance();
-            Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton dateButton4 = new Infragistics.Win.UltraWinSchedule.CalendarCombo.DateButton();
             this.lblPlantCode = new DC00_Component.SLabel();
             this.lblItemCode = new DC00_Component.SLabel();
             this.cboPlantCode = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
@@ -54,10 +50,7 @@
             this.txtLotNo = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.lblWorkerName_H = new DC00_Component.SLabel();
             this.cboItemCode = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
-            this.sLabel5 = new DC00_Component.SLabel();
-            this.dtpEnd = new Infragistics.Win.UltraWinSchedule.UltraCalendarCombo();
-            this.sLabel3 = new DC00_Component.SLabel();
-            this.dtpStart = new Infragistics.Win.UltraWinSchedule.UltraCalendarCombo();
+            this.btnBarcodePrint = new Infragistics.Win.Misc.UltraButton();
             ((System.ComponentModel.ISupportInitialize)(this.gbxHeader)).BeginInit();
             this.gbxHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxBody)).BeginInit();
@@ -66,8 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLotNo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItemCode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpEnd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpStart)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxHeader
@@ -76,10 +67,7 @@
             this.gbxHeader.ContentPadding.Left = 2;
             this.gbxHeader.ContentPadding.Right = 2;
             this.gbxHeader.ContentPadding.Top = 4;
-            this.gbxHeader.Controls.Add(this.sLabel5);
-            this.gbxHeader.Controls.Add(this.dtpEnd);
-            this.gbxHeader.Controls.Add(this.sLabel3);
-            this.gbxHeader.Controls.Add(this.dtpStart);
+            this.gbxHeader.Controls.Add(this.btnBarcodePrint);
             this.gbxHeader.Controls.Add(this.cboItemCode);
             this.gbxHeader.Controls.Add(this.txtLotNo);
             this.gbxHeader.Controls.Add(this.lblWorkerName_H);
@@ -140,7 +128,7 @@
             this.cboPlantCode.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.cboPlantCode.Location = new System.Drawing.Point(112, 21);
             this.cboPlantCode.Name = "cboPlantCode";
-            this.cboPlantCode.Size = new System.Drawing.Size(182, 27);
+            this.cboPlantCode.Size = new System.Drawing.Size(145, 27);
             this.cboPlantCode.TabIndex = 0;
             // 
             // grid1
@@ -262,68 +250,25 @@
             this.cboItemCode.Font = new System.Drawing.Font("맑은 고딕", 10F);
             this.cboItemCode.Location = new System.Drawing.Point(352, 22);
             this.cboItemCode.Name = "cboItemCode";
-            this.cboItemCode.Size = new System.Drawing.Size(188, 27);
+            this.cboItemCode.Size = new System.Drawing.Size(145, 27);
             this.cboItemCode.TabIndex = 187;
             // 
-            // sLabel5
+            // btnBarcodePrint
             // 
-            appearance20.FontData.BoldAsString = "False";
-            appearance20.FontData.UnderlineAsString = "False";
-            appearance20.ForeColor = System.Drawing.Color.Black;
-            appearance20.TextHAlignAsString = "Right";
-            appearance20.TextVAlignAsString = "Middle";
-            this.sLabel5.Appearance = appearance20;
-            this.sLabel5.DbField = null;
-            this.sLabel5.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.sLabel5.Location = new System.Drawing.Point(855, 28);
-            this.sLabel5.Name = "sLabel5";
-            this.sLabel5.RequireFlag = DC00_Component.SLabel.RequireFlagEnum.NO;
-            this.sLabel5.Size = new System.Drawing.Size(96, 23);
-            this.sLabel5.TabIndex = 191;
-            this.sLabel5.Text = "입/출고 일자";
+            this.btnBarcodePrint.Location = new System.Drawing.Point(825, 14);
+            this.btnBarcodePrint.Name = "btnBarcodePrint";
+            this.btnBarcodePrint.Size = new System.Drawing.Size(109, 39);
+            this.btnBarcodePrint.TabIndex = 188;
+            this.btnBarcodePrint.Text = "식별표 발행";
+            this.btnBarcodePrint.Click += new System.EventHandler(this.btnBarcodePrint_Click);
             // 
-            // dtpEnd
-            // 
-            this.dtpEnd.DateButtons.Add(dateButton3);
-            this.dtpEnd.Location = new System.Drawing.Point(1097, 23);
-            this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.NonAutoSizeHeight = 26;
-            this.dtpEnd.Size = new System.Drawing.Size(122, 26);
-            this.dtpEnd.TabIndex = 190;
-            // 
-            // sLabel3
-            // 
-            appearance18.FontData.BoldAsString = "False";
-            appearance18.FontData.UnderlineAsString = "False";
-            appearance18.ForeColor = System.Drawing.Color.Black;
-            appearance18.TextHAlignAsString = "Right";
-            appearance18.TextVAlignAsString = "Middle";
-            this.sLabel3.Appearance = appearance18;
-            this.sLabel3.DbField = null;
-            this.sLabel3.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.sLabel3.Location = new System.Drawing.Point(1085, 24);
-            this.sLabel3.Name = "sLabel3";
-            this.sLabel3.RequireFlag = DC00_Component.SLabel.RequireFlagEnum.NO;
-            this.sLabel3.Size = new System.Drawing.Size(10, 23);
-            this.sLabel3.TabIndex = 189;
-            this.sLabel3.Text = "~";
-            // 
-            // dtpStart
-            // 
-            this.dtpStart.DateButtons.Add(dateButton4);
-            this.dtpStart.Location = new System.Drawing.Point(957, 23);
-            this.dtpStart.Name = "dtpStart";
-            this.dtpStart.NonAutoSizeHeight = 26;
-            this.dtpStart.Size = new System.Drawing.Size(122, 26);
-            this.dtpStart.TabIndex = 188;
-            // 
-            // MM_StockMMrec
+            // MM_StockOut
             // 
             this.ClientSize = new System.Drawing.Size(1284, 778);
-            this.Name = "MM_StockMMrec";
+            this.Name = "MM_StockOut";
             this.Padding = new System.Windows.Forms.Padding(3);
-            this.Text = "원자재 입출 이력 확인";
-            this.Load += new System.EventHandler(this.MM_StockMMrec_Load);
+            this.Text = "자재 재고 관리";
+            this.Load += new System.EventHandler(this.MM_StockOut_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gbxHeader)).EndInit();
             this.gbxHeader.ResumeLayout(false);
             this.gbxHeader.PerformLayout();
@@ -333,8 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLotNo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboItemCode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpEnd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpStart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,9 +290,6 @@
         private Infragistics.Win.UltraWinEditors.UltraTextEditor txtLotNo;
         private DC00_Component.SLabel lblWorkerName_H;
         private Infragistics.Win.UltraWinEditors.UltraComboEditor cboItemCode;
-        private DC00_Component.SLabel sLabel5;
-        private Infragistics.Win.UltraWinSchedule.UltraCalendarCombo dtpEnd;
-        private DC00_Component.SLabel sLabel3;
-        private Infragistics.Win.UltraWinSchedule.UltraCalendarCombo dtpStart;
+        private Infragistics.Win.Misc.UltraButton btnBarcodePrint;
     }
 }
