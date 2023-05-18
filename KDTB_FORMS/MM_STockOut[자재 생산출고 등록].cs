@@ -1,8 +1,8 @@
 ﻿#region < HEADER AREA >
 // *---------------------------------------------------------------------------------------------*
 //   Form ID      : MM_StockOut
-//   Form Name    : 자재 재고관리 
-//   Name Space   : DC_MM
+//   Form Name    : 자재 생산 출고 등록
+//   Name Space   : KDTB_FORMS
 //   Created Date : 2023/05
 //   Made By      : DSH
 //   Description  : 
@@ -48,18 +48,16 @@ namespace KDTB_FORMS
         {
             #region ▶ GRID ◀
             _GridUtil.InitializeGrid(this.grid1);
+            _GridUtil.InitColumnUltraGrid(grid1, "CHK",       "선택",     GridColDataType_emu.CheckBox,     80,  Infragistics.Win.HAlign.Center,  true, true);
             _GridUtil.InitColumnUltraGrid(grid1, "PLANTCODE", "공장",     GridColDataType_emu.VarChar,     120,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "INDATE",    "입고일자", GridColDataType_emu.VarChar,     140,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "ITEMCODE",  "품목",     GridColDataType_emu.VarChar,     140,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",  "품목명",   GridColDataType_emu.VarChar,     140,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "MATLOTNO",  "LOTNO",    GridColDataType_emu.VarChar,     120,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "WHCODE",    "입고창고", GridColDataType_emu.VarChar,     120,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "STOCKQTY",  "재고수량", GridColDataType_emu.Double,      100,  Infragistics.Win.HAlign.Right,   true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "UNITCODE",  "단위",     GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "CUSTCODE",  "거래처",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "CUSTNAME",  "거래처명", GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "INDATE",    "입고일자", GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "MAKER",     "등록자",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "MAKEDATE",  "등록일시", GridColDataType_emu.DateTime24,  150,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "WHCODE",    "창고코드", GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "MKAER",     "입고자",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.SetInitUltraGridBind(grid1);
             #endregion
 
@@ -70,9 +68,6 @@ namespace KDTB_FORMS
 
             rtnDtTemp = Common.StandardCODE("UNITCODE");     //단위
             UltraGridUtil.SetComboUltraGrid(this.grid1, "UNITCODE", rtnDtTemp);
-
-            rtnDtTemp = Common.StandardCODE("WHCODE");     //입고 창고
-            UltraGridUtil.SetComboUltraGrid(this.grid1, "WHCODE", rtnDtTemp);
 
             // 품목코드 
             //FP  : 완제품
