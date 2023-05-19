@@ -99,6 +99,12 @@
     <Compile Include="MM_STockMMrec[자재 입출고 이력].designer.cs">
       <DependentUpon>MM_STockMMrec[자재 입출고 이력].cs</DependentUpon>
     </Compile>
+    <Compile Include="PP_ActureOutPut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PP_ActureOutPut.Designer.cs">
+      <DependentUpon>PP_ActureOutPut.cs</DependentUpon>
+    </Compile>
     <Compile Include="PP_StockPPRec[공정 재고 입출 이력].cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM_STockMMrec[자재 입출고 이력].resx">
       <DependentUpon>MM_STockMMrec[자재 입출고 이력].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PP_ActureOutPut.resx">
+      <DependentUpon>PP_ActureOutPut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PP_StockPPRec[공정 재고 입출 이력].resx">
       <DependentUpon>PP_StockPPRec[공정 재고 입출 이력].cs</DependentUpon>
