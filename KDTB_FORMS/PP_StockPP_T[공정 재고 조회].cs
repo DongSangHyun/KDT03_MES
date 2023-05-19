@@ -1,6 +1,6 @@
 ﻿#region < HEADER AREA >
 // *---------------------------------------------------------------------------------------------*
-//   Form ID      : PP_StockPP
+//   Form ID      : PP_StockPP_T
 //   Form Name    : 공정 재고 조회 및 원자재 출고 취소.
 //   Name Space   : KDTB_FORMS
 //   Created Date : 2023/05
@@ -13,6 +13,7 @@
 using System;
 using System.Data;
 using System.Linq.Expressions;
+using System.Windows.Forms;
 using DC_POPUP;
 using DC00_assm;
 using DC00_Component;
@@ -25,7 +26,7 @@ using Telerik.Reporting;
 
 namespace KDTB_FORMS
 {
-    public partial class PP_StockPP : DC00_WinForm.BaseMDIChildForm
+    public partial class PP_StockPP_T : DC00_WinForm.BaseMDIChildForm
     {
 
         #region < MEMBER AREA >
@@ -37,7 +38,7 @@ namespace KDTB_FORMS
 
 
         #region < CONSTRUCTOR >
-        public PP_StockPP()
+        public PP_StockPP_T()
         {
             InitializeComponent();
         }
@@ -45,7 +46,7 @@ namespace KDTB_FORMS
 
 
         #region < FORM EVENTS >
-        private void PP_StockPP_Load(object sender, EventArgs e)
+        private void PP_StockPP_T_Load(object sender, EventArgs e)
         {
             #region ▶ GRID ◀
             _GridUtil.InitializeGrid(this.grid1);
@@ -159,8 +160,12 @@ namespace KDTB_FORMS
 
 
                     helper.ExecuteNoneQuery("SP00_PP_StockPP_U1", CommandType.StoredProcedure
-                                            , helper.CreateParameter("@MATLOTNO", dr["MATLOTNO"])
-                                            , helper.CreateParameter("@MAKER",    LoginInfo.UserID)
+                                            , helper.CreateParameter("@PLANTCODE", dr["PLANTCODE"])
+                                            , helper.CreateParameter("@LOTNO",     dr["LOTNO"])
+                                            , helper.CreateParameter("@ITEMCODE",  dr["ITEMCODE"])
+                                            , helper.CreateParameter("@QTY",       dr["STOCKQTY"])
+                                            , helper.CreateParameter("@UNITCODE",  dr["UNITCODE"])
+                                            , helper.CreateParameter("@WORKERID",  LoginInfo.UserID)
                                             );
 
                     if (helper.RSCODE != "S")
