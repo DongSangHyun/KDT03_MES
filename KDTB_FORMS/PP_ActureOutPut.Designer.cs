@@ -33,8 +33,12 @@
             Infragistics.Win.Appearance appearance18 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance21 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance20 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
@@ -58,9 +62,9 @@
             this.btnWorkerReg = new System.Windows.Forms.Button();
             this.btnOrderSelect = new System.Windows.Forms.Button();
             this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.sLabel4 = new DC00_Component.SLabel();
-            this.txtInLotNo = new DC00_Component.STextBox(this.components);
             this.btnLotInOut = new System.Windows.Forms.Button();
+            this.txtInLotNo = new DC00_Component.STextBox(this.components);
+            this.sLabel4 = new DC00_Component.SLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.sLabel5 = new DC00_Component.SLabel();
             this.txtProdQty = new DC00_Component.STextBox(this.components);
@@ -129,6 +133,9 @@
             // 
             // sLabel1
             // 
+            appearance19.FontData.BoldAsString = "False";
+            appearance19.FontData.UnderlineAsString = "False";
+            appearance19.ForeColor = System.Drawing.Color.Black;
             appearance19.TextHAlignAsString = "Right";
             appearance19.TextVAlignAsString = "Middle";
             this.sLabel1.Appearance = appearance19;
@@ -199,6 +206,10 @@
             // 
             // txtWorkerName
             // 
+            appearance23.FontData.BoldAsString = "False";
+            appearance23.FontData.UnderlineAsString = "False";
+            appearance23.ForeColor = System.Drawing.Color.Black;
+            this.txtWorkerName.Appearance = appearance23;
             this.txtWorkerName.Location = new System.Drawing.Point(707, 12);
             this.txtWorkerName.Name = "txtWorkerName";
             this.txtWorkerName.RequireFlag = DC00_Component.STextBox.RequireFlagEnum.NO;
@@ -224,6 +235,7 @@
             this.btnOrderSelect.TabIndex = 8;
             this.btnOrderSelect.Text = "(3) 작업지시 선택";
             this.btnOrderSelect.UseVisualStyleBackColor = true;
+            this.btnOrderSelect.Click += new System.EventHandler(this.btnOrderSelect_Click);
             // 
             // ultraGroupBox1
             // 
@@ -235,6 +247,28 @@
             this.ultraGroupBox1.Size = new System.Drawing.Size(361, 98);
             this.ultraGroupBox1.TabIndex = 9;
             this.ultraGroupBox1.Text = "LOT 투입/취소";
+            // 
+            // btnLotInOut
+            // 
+            this.btnLotInOut.Location = new System.Drawing.Point(113, 58);
+            this.btnLotInOut.Name = "btnLotInOut";
+            this.btnLotInOut.Size = new System.Drawing.Size(242, 26);
+            this.btnLotInOut.TabIndex = 11;
+            this.btnLotInOut.Text = "(4) LOT 투입";
+            this.btnLotInOut.UseVisualStyleBackColor = true;
+            // 
+            // txtInLotNo
+            // 
+            appearance22.FontData.BoldAsString = "False";
+            appearance22.FontData.UnderlineAsString = "False";
+            appearance22.ForeColor = System.Drawing.Color.Black;
+            this.txtInLotNo.Appearance = appearance22;
+            this.txtInLotNo.Location = new System.Drawing.Point(113, 21);
+            this.txtInLotNo.Name = "txtInLotNo";
+            this.txtInLotNo.RequireFlag = DC00_Component.STextBox.RequireFlagEnum.NO;
+            this.txtInLotNo.RequirePop = DC00_Component.STextBox.RequireFlagEnum.NO;
+            this.txtInLotNo.Size = new System.Drawing.Size(242, 29);
+            this.txtInLotNo.TabIndex = 10;
             // 
             // sLabel4
             // 
@@ -252,24 +286,6 @@
             this.sLabel4.Size = new System.Drawing.Size(101, 23);
             this.sLabel4.TabIndex = 6;
             this.sLabel4.Text = "투입 LOT 번호";
-            // 
-            // txtInLotNo
-            // 
-            this.txtInLotNo.Location = new System.Drawing.Point(113, 21);
-            this.txtInLotNo.Name = "txtInLotNo";
-            this.txtInLotNo.RequireFlag = DC00_Component.STextBox.RequireFlagEnum.NO;
-            this.txtInLotNo.RequirePop = DC00_Component.STextBox.RequireFlagEnum.NO;
-            this.txtInLotNo.Size = new System.Drawing.Size(242, 29);
-            this.txtInLotNo.TabIndex = 10;
-            // 
-            // btnLotInOut
-            // 
-            this.btnLotInOut.Location = new System.Drawing.Point(113, 58);
-            this.btnLotInOut.Name = "btnLotInOut";
-            this.btnLotInOut.Size = new System.Drawing.Size(242, 26);
-            this.btnLotInOut.TabIndex = 11;
-            this.btnLotInOut.Text = "(4) LOT 투입";
-            this.btnLotInOut.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -299,6 +315,10 @@
             // 
             // txtProdQty
             // 
+            appearance21.FontData.BoldAsString = "False";
+            appearance21.FontData.UnderlineAsString = "False";
+            appearance21.ForeColor = System.Drawing.Color.Black;
+            this.txtProdQty.Appearance = appearance21;
             this.txtProdQty.Location = new System.Drawing.Point(727, 56);
             this.txtProdQty.Name = "txtProdQty";
             this.txtProdQty.RequireFlag = DC00_Component.STextBox.RequireFlagEnum.NO;
@@ -308,6 +328,10 @@
             // 
             // txtBadQty
             // 
+            appearance20.FontData.BoldAsString = "False";
+            appearance20.FontData.UnderlineAsString = "False";
+            appearance20.ForeColor = System.Drawing.Color.Black;
+            this.txtBadQty.Appearance = appearance20;
             this.txtBadQty.Location = new System.Drawing.Point(727, 91);
             this.txtBadQty.Name = "txtBadQty";
             this.txtBadQty.RequireFlag = DC00_Component.STextBox.RequireFlagEnum.NO;

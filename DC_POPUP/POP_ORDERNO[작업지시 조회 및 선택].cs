@@ -69,7 +69,7 @@ namespace DC_POPUP
 
         private void search()
         {
-            string RS_CODE    = string.Empty, RS_MSG = string.Empty;
+            string RS_CODE         = string.Empty, RS_MSG = string.Empty;
             string sPlantCode      = Convert.ToString(cboPlantCode_H.Value);
             string sWorkcenterCode = txtWorkcenterCode.Text;
             string sWorkcenterNamr = txtWorkcenterName.Text;

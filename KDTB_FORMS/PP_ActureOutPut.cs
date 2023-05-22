@@ -11,6 +11,8 @@ using System.Security.AccessControl;
 using DC00_PuMan;
 using System.Linq.Expressions;
 using Infragistics.Win.Design;
+using System.Runtime.InteropServices.WindowsRuntime;
+using DC_POPUP;
 // *---------------------------------------------------------------------------------------------*
 //   Form ID      : PP_ActureOutPut
 //   Form Name    : 생산 실적 등록
@@ -124,6 +126,8 @@ namespace KDTB_FORMS
             }
         }
 
+
+
         #region < 1. 작업자 등록 로직 >
         private void btnWorkerReg_Click(object sender, EventArgs e)
         {
@@ -166,6 +170,44 @@ namespace KDTB_FORMS
                 helper.Close();
             }
             
+        }
+        #endregion
+
+        #region < 2. 작업지시 선택 >
+        private void btnOrderSelect_Click(object sender, EventArgs e)
+        {
+            // 선택한 작업장이 있는지 확인 
+            if (grid1.Rows.Count == 0)   return;
+            if (grid1.ActiveRow == null) return;
+
+            // 작업자 등록 된 상태인지 확인.
+            string sWorkerId = Convert.ToString(grid1.ActiveRow.Cells["WORKER"].Value);
+            if (sWorkerId == "")
+            {
+                ShowDialog("작업자를 선택하지 않았습니다.\r\n작업자 등록 후 진행하세요");
+                return;
+            }
+            string sWorkStatus = Convert.ToString(grid1.ActiveRow.Cells["WORKSTATUSCODE"].Value);
+            if (sWorkStatus == "R")  // S : Stop , R : Run
+            {
+                ShowDialog("현재 작업장의 상태가 가동 중입니다.\r\n비가동 등록 후 진행하세요.");
+                return;
+            }
+            string sMatlotno = Convert.ToString(grid1.ActiveRow.Cells["MATLOTNO"].Value);
+            if (sMatlotno != "")
+            {
+                ShowDialog("현재 작업장의 투입 LOT 가 존재 합니다.\r\nLOT 투입 취소 후 진행하세요.");
+                return;
+            }
+
+            // 작업지시 선택 팝업 호출. 
+            string sWorkcenterCode = Convert.ToString(grid1.ActiveRow.Cells["WORKCENTERCODE"].Value);
+            string sWorkcenterName = Convert.ToString(grid1.ActiveRow.Cells["WORKCENTERNAME"].Value);
+            string sPlantCode      = Convert.ToString(grid1.ActiveRow.Cells["PLANTCODE"].Value);
+
+
+            POP_ORDERNO popOrderNo = new POP_ORDERNO(sWorkcenterCode, sWorkcenterName);
+            popOrderNo.ShowDialog();
         }
         #endregion
     }
