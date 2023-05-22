@@ -208,6 +208,48 @@ namespace KDTB_FORMS
 
             POP_ORDERNO popOrderNo = new POP_ORDERNO(sWorkcenterCode, sWorkcenterName);
             popOrderNo.ShowDialog();
+
+
+            // 작업지시 팝업에서 선택한 작업지시 번호를 작업장 현재 상태 로 등록
+            string sOrderNo = Convert.ToString(popOrderNo.Tag);
+            if (sOrderNo == "") return;
+
+            if (ShowDialog("작업지시 변경 을 적용 하시겠습니까?") == DialogResult.Cancel) return;
+            
+            // 작업지시 등록 
+
+            DBHelper helper = new DBHelper(true);
+            try
+            {
+                helper.ExecuteNoneQuery("SP00_PP_ActureOutPut_I2", CommandType.StoredProcedure
+                                        , helper.CreateParameter("@PLANTCODE",      sPlantCode)
+                                        , helper.CreateParameter("@WORKCENTERCODE", sWorkcenterCode)
+                                        , helper.CreateParameter("@ORDERNO",        sOrderNo)
+                                        , helper.CreateParameter("@WORKER",         sWorkerId)
+                                        );
+
+                if (helper.RSCODE != "S")
+                {
+                    helper.Rollback();
+                    ShowDialog(helper.RSMSG);
+                    return;
+                }
+
+                helper.Commit();
+                ShowDialog("작업지시 변경을 완료 하였습니다.");
+                DoInquire();
+            }
+            catch (Exception ex)
+            {
+                helper.Rollback();
+                ShowDialog(ex.ToString());
+            }
+            finally
+            { 
+                helper.Close(); 
+            }
+
+
         }
         #endregion
     }

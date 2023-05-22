@@ -26,7 +26,6 @@ namespace DC_POPUP
         private string sWorkcenterCode = string.Empty;
         private string sWorkcenterName = string.Empty;
 
-
         #endregion
 
         public POP_ORDERNO(string WorkcenterCode, string WorkcenterName)
@@ -109,6 +108,7 @@ namespace DC_POPUP
         {
             this.Tag = Convert.ToString(this.Grid1.ActiveRow.Cells["ORDERNO"].Value);
             this.Close();
+
         }
 
   
