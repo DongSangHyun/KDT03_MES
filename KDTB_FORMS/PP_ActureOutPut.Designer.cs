@@ -256,6 +256,7 @@
             this.btnLotInOut.TabIndex = 11;
             this.btnLotInOut.Text = "(4) LOT 투입";
             this.btnLotInOut.UseVisualStyleBackColor = true;
+            this.btnLotInOut.Click += new System.EventHandler(this.btnLotInOut_Click);
             // 
             // txtInLotNo
             // 
@@ -289,7 +290,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(555, 67);
+            this.button1.Location = new System.Drawing.Point(553, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 73);
             this.button1.TabIndex = 12;
@@ -456,6 +457,7 @@
             this.grid1.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChange;
             this.grid1.UseFlatMode = Infragistics.Win.DefaultableBoolean.True;
             this.grid1.UseOsThemes = Infragistics.Win.DefaultableBoolean.False;
+            this.grid1.AfterRowActivate += new System.EventHandler(this.grid1_AfterRowActivate);
             // 
             // PP_ActureOutPut
             // 

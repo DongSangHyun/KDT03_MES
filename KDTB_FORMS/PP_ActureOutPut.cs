@@ -252,6 +252,104 @@ namespace KDTB_FORMS
 
         }
         #endregion
+
+        /// <summary>
+        /// 그리드 의 행 선택시(작업장선택시) 데이터 표현
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grid1_AfterRowActivate(object sender, EventArgs e)
+        {
+            // 작업자 정보 표시.
+
+            txtWorkerId.Text   = Convert.ToString(grid1.ActiveRow.Cells["WORKER"].Value);
+            txtWorkerName.Text = Convert.ToString(grid1.ActiveRow.Cells["WORKERNAME"].Value);
+
+
+            // LOT 투입 여부 에 따른 투입/취소 변경
+            string sLotno = Convert.ToString(grid1.ActiveRow.Cells["MATLOTNO"].Value);
+            txtInLotNo.Text = sLotno;
+            if (sLotno == "")
+            {
+                btnLotInOut.Text = "(4) LOT 투입";
+                btnLotInOut.Tag  = true;
+            }
+            else
+            {
+                btnLotInOut.Text = "(4) LOT 투입 취소";
+                btnLotInOut.Tag  = false;
+            }
+        }
+
+        #region < 4. LOT 투입 >
+        private void btnLotInOut_Click(object sender, EventArgs e)
+        {
+            if (grid1.ActiveRow == null) return;
+
+            string sItemCode       = Convert.ToString(grid1.ActiveRow.Cells["ITEMCODE"].Value);       // 생산 품목
+            string sLotno          = txtInLotNo.Text;                                                 // 원자재 LOT 번호
+            string sWorkcentercode = Convert.ToString(grid1.ActiveRow.Cells["WORKCENTERCODE"].Value);
+            string sOrderNo        = Convert.ToString(grid1.ActiveRow.Cells["ORDERNO"].Value);
+            if (sOrderNo == "")
+            {
+                ShowDialog("작업지시를 선택하지 않았습니다.\r\n작업지시 선택 후 LOT 투입하세요 제발요...");
+                return;
+            }
+            string sUnitcode = Convert.ToString(grid1.ActiveRow.Cells["UNITCODE"].Value);
+            string sWorker = Convert.ToString(grid1.ActiveRow.Cells["WORKER"].Value);
+            if (sWorker == "")
+            {
+                ShowDialog("작업자 선택 하라고 몇번이나 말하니.\r\n작업자 선택 후 LOT 투입하세요 제발요...");
+                return;
+            }
+
+            // LOT 투입 로직 인지 / 투입 취소 로직인지 판정. 
+            string sLotInOutflag = "IN"; // LOT 투입
+            if (!Convert.ToBoolean(btnLotInOut.Tag)) sLotInOutflag = "OUT";
+
+            string sPlantCode = Convert.ToString(grid1.ActiveRow.Cells["PLANTCODE"].Value);
+
+
+            // 원자재 LOT 투입/ 취소
+            DBHelper helper = new DBHelper(true);
+            try
+            {
+                helper.ExecuteNoneQuery("SP00_PP_ActureOutPut_I3", CommandType.StoredProcedure
+                                        , helper.CreateParameter("@PLANTCODE",      sPlantCode)
+                                        , helper.CreateParameter("@ITEMCODE",       sItemCode)       // 생산 품목.
+                                        , helper.CreateParameter("@LOTNO",          sLotno)          // 투입 원자재 LOTNO
+                                        , helper.CreateParameter("@WORKCENTERCODE", sWorkcentercode) // 작업장.
+                                        , helper.CreateParameter("@ORDERNO",        sOrderNo)        // 작업지시 번호
+                                        , helper.CreateParameter("@UNITCODE",       sUnitcode)       // 단위
+                                        , helper.CreateParameter("@INFLAG",         sLotInOutflag)   // IN : LOT 투입 , OUT : 투입 취소
+                                        , helper.CreateParameter("@WORKER",         sWorker)         // 작업장 의 작업자.
+                                        );
+
+
+                if (helper.RSCODE != "S")
+                {
+                    helper.Rollback();
+                    ShowDialog(helper.RSMSG);
+                    return;
+                }
+
+                helper.Commit();
+                ShowDialog("정상적으로 원자재 LOT 투입을 완료 하였습니다.");
+                DoInquire(); // 재조회
+            }
+            catch (Exception ex)
+            {
+                helper.Rollback();
+                ShowDialog(ex.ToString());
+            }
+            finally
+            {
+                helper.Close();
+            }
+
+
+        }
+        #endregion
     }
 }
 
