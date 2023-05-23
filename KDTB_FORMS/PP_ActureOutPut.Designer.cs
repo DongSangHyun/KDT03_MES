@@ -65,7 +65,7 @@
             this.btnLotInOut = new System.Windows.Forms.Button();
             this.txtInLotNo = new DC00_Component.STextBox(this.components);
             this.sLabel4 = new DC00_Component.SLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRunStop = new System.Windows.Forms.Button();
             this.sLabel5 = new DC00_Component.SLabel();
             this.txtProdQty = new DC00_Component.STextBox(this.components);
             this.txtBadQty = new DC00_Component.STextBox(this.components);
@@ -101,7 +101,7 @@
             this.gbxHeader.Controls.Add(this.sLabel6);
             this.gbxHeader.Controls.Add(this.txtProdQty);
             this.gbxHeader.Controls.Add(this.sLabel5);
-            this.gbxHeader.Controls.Add(this.button1);
+            this.gbxHeader.Controls.Add(this.btnRunStop);
             this.gbxHeader.Controls.Add(this.ultraGroupBox1);
             this.gbxHeader.Controls.Add(this.btnOrderSelect);
             this.gbxHeader.Controls.Add(this.btnWorkerReg);
@@ -288,14 +288,15 @@
             this.sLabel4.TabIndex = 6;
             this.sLabel4.Text = "투입 LOT 번호";
             // 
-            // button1
+            // btnRunStop
             // 
-            this.button1.Location = new System.Drawing.Point(553, 69);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 73);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "(5) 가동";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRunStop.Location = new System.Drawing.Point(553, 69);
+            this.btnRunStop.Name = "btnRunStop";
+            this.btnRunStop.Size = new System.Drawing.Size(88, 73);
+            this.btnRunStop.TabIndex = 12;
+            this.btnRunStop.Text = "(5) 가동";
+            this.btnRunStop.UseVisualStyleBackColor = true;
+            this.btnRunStop.Click += new System.EventHandler(this.button1_Click);
             // 
             // sLabel5
             // 
@@ -493,7 +494,7 @@
         private DC00_Component.SLabel sLabel6;
         private DC00_Component.STextBox txtProdQty;
         private DC00_Component.SLabel sLabel5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRunStop;
         private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox1;
         private System.Windows.Forms.Button btnLotInOut;
         private DC00_Component.STextBox txtInLotNo;

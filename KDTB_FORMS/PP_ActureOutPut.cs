@@ -279,6 +279,20 @@ namespace KDTB_FORMS
                 btnLotInOut.Text = "(4) LOT 투입 취소";
                 btnLotInOut.Tag  = false;
             }
+
+
+            // 가동 / 비가동 여부 에 따른 버튼 상태 변경.
+            string sRunStop = Convert.ToString(grid1.ActiveRow.Cells["WORKSTATUSCODE"].Value);
+            if (sRunStop == "R")
+            {
+                btnRunStop.Text = "(5) 비가동";
+                btnRunStop.Tag = false;
+            }
+            else 
+            {
+                btnRunStop.Text = "(5) 가동";
+                btnRunStop.Tag = true;
+            }
         }
 
         #region < 4. LOT 투입 >
@@ -347,6 +361,61 @@ namespace KDTB_FORMS
                 helper.Close();
             }
 
+
+        }
+        #endregion
+
+        #region < 작업장 가동 / 비가동 등록 >
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (grid1.ActiveRow == null) return;
+
+            string sOrderNo = Convert.ToString(grid1.ActiveRow.Cells["ORDERNO"].Value);
+            if (sOrderNo == "")
+            {
+                ShowDialog("작업지시를 선택 하지 않았습니다.");
+                return;
+            }
+
+            // 가동 / 비가동 여부 판단. 
+            string sRunStop = "R";
+            if (!Convert.ToBoolean(btnRunStop.Tag)) sRunStop = "S";
+
+            string sPlantCode      = Convert.ToString(grid1.ActiveRow.Cells["PLANTCODE"].Value);
+            string sWorkcenterCode = Convert.ToString(grid1.ActiveRow.Cells["WORKCENTERCODE"].Value);
+            string sWorker         = Convert.ToString(grid1.ActiveRow.Cells["WORKER"].Value);
+            DBHelper helper = new DBHelper(true);
+            try
+            {
+
+                helper.ExecuteNoneQuery("SP00_PP_ActureOutPut_I4", CommandType.StoredProcedure
+                                        , helper.CreateParameter("@PLANTCODE",      sPlantCode)
+                                        , helper.CreateParameter("@WORKCENTERCODE", sWorkcenterCode)
+                                        , helper.CreateParameter("@ORDERNO",        sOrderNo)
+                                        , helper.CreateParameter("@RUNSTOPFLAG",    sRunStop)
+                                        , helper.CreateParameter("@WORKER",         sWorker)
+                                        );
+
+
+                if (helper.RSCODE != "S")
+                {
+                    helper.Rollback();
+                    ShowDialog(helper.RSMSG);
+                    return;
+                }
+                helper.Commit();
+                ShowDialog("정상적으로 가동/비가동을 등록 하였습니다.");
+                DoInquire(); //재조회
+            }
+            catch (Exception ex)
+            {
+                helper.Rollback();
+                ShowDialog(ex.ToString());
+            }
+            finally
+            {
+                helper.Close();
+            }
 
         }
         #endregion

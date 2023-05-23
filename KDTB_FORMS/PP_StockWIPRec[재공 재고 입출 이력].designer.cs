@@ -1,4 +1,4 @@
-﻿namespace DC_PP
+﻿namespace KDTB_FORMS
 {
     partial class PP_StockHALBRec
     {

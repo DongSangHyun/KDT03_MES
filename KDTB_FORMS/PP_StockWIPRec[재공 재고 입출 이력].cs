@@ -2,7 +2,7 @@
 // *---------------------------------------------------------------------------------------------*
 //   Form ID      : PP_STockWIPRec
 //   Form Name    : 재공 재고  입출 이력
-//   Name Space   : DC_PP
+//   Name Space   : KDTB_FORMS
 //   Created Date : 2022/08
 //   Made By      : DSH
 //   Description  : 
@@ -20,7 +20,7 @@ using DC00_WinForm;
 using Infragistics.Win.UltraWinGrid;
 #endregion
 
-namespace DC_PP
+namespace KDTB_FORMS
 {
     public partial class PP_StockHALBRec : DC00_WinForm.BaseMDIChildForm
     {
@@ -71,7 +71,7 @@ namespace DC_PP
             rtnDtTemp = Common.StandardCODE("UNITCODE");     //단위
             UltraGridUtil.SetComboUltraGrid(this.grid1, "UNITCODE", rtnDtTemp);
              
-            rtnDtTemp = Common.Get_ItemCode(new string[] { "FERT" });
+            rtnDtTemp = Common.Get_ItemCode(new string[] { "ROH","HALB" });
             Common.FillComboboxMaster(this.cboItemCode, rtnDtTemp);
 
 

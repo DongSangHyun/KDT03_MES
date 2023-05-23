@@ -2,7 +2,7 @@
 // *---------------------------------------------------------------------------------------------*
 //   Form ID      : PP_STockWIP
 //   Form Name    : 재공 재고 조회
-//   Name Space   : DC_PP
+//   Name Space   : KDTB_FORMS
 //   Created Date : 2022/08
 //   Made By      : DSH
 //   Description  : 
@@ -20,7 +20,7 @@ using DC00_WinForm;
 using Infragistics.Win.UltraWinGrid;
 #endregion
 
-namespace DC_PP
+namespace KDTB_FORMS
 {
     public partial class PP_STockHALB : DC00_WinForm.BaseMDIChildForm
     {
