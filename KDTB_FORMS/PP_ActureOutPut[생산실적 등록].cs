@@ -13,6 +13,7 @@ using System.Linq.Expressions;
 using Infragistics.Win.Design;
 using System.Runtime.InteropServices.WindowsRuntime;
 using DC_POPUP;
+using Telerik.Reporting;
 // *---------------------------------------------------------------------------------------------*
 //   Form ID      : PP_ActureOutPut
 //   Form Name    : 생산 실적 등록
@@ -482,7 +483,7 @@ namespace KDTB_FORMS
             string sUnitCode       = Convert.ToString(grid1.ActiveRow.Cells["UNITCODE"].Value);
 
             // 생산 실적 등록 SP
-            DBHelper helper = new DBHelper();   
+            DBHelper helper = new DBHelper(true);   
             try
             {
                 helper.ExecuteNoneQuery("SP00_PPActureOutPut_I5", CommandType.StoredProcedure
@@ -504,7 +505,10 @@ namespace KDTB_FORMS
                 }
                 helper.Commit();
                 ShowDialog("정상 적으로 실적 등록을 완료 하였습니다");
-                DoInquire(); 
+                DoInquire();
+                txtProdQty.Text = "";
+                txtBadQty.Text  = "";
+                PrintBarcode(sPlantCode,helper.RSMSG, helper);
             }
             catch (Exception ex)
             {
@@ -515,6 +519,93 @@ namespace KDTB_FORMS
             { 
                 helper.Close(); 
             }
+
+        }
+
+        /// <summary>
+        /// 제품 바코드 발행 로직.
+        /// </summary>
+        private void PrintBarcode(string sPlantCode, string sLonot, DBHelper helper)
+        {
+            if (sLonot == "") return;
+
+            // 제품 LOT 의 정보 가져오기 
+            DataTable dtTEmp = new DataTable();
+            dtTEmp = helper.FillTable("SP00_PP_ActureOutput_S2", CommandType.StoredProcedure
+                            , helper.CreateParameter("@PLANTCODE", sPlantCode)
+                            , helper.CreateParameter("@LOTNO",     sLonot)
+                );
+            if (dtTEmp.Rows.Count == 0) return;
+
+            // 바코드 발행 로직.
+
+            // 1. 제품 바코드 디자인 선언
+            Report_LotBacodeFERT LOT_FERT = new Report_LotBacodeFERT();
+
+            // 2. 레포트 북 선언.
+            ReportBook REPbook = new ReportBook();
+
+            // 3. 제품 바코드 에 DataTable 바인딩. 
+            LOT_FERT.DataSource = dtTEmp;
+
+            // 4. 레포트 북에 바코드 디자인 객체 추가.
+            REPbook.Reports.Add(LOT_FERT);
+
+            // 5. 미리보기 창에 레포트 북 전달.
+            ReportViewer REP_V = new ReportViewer(REPbook, 1);
+            REP_V.ShowDialog();
+        }
+
+        #endregion
+
+        #region < 7. 작업지시 종료 > 
+        private void btnOrderClose_Click(object sender, EventArgs e)
+        {
+            if (grid1.ActiveRow == null) return;
+
+            if (Convert.ToString(grid1.ActiveRow.Cells["MATLOTNO"].Value) != "")
+            {
+                ShowDialog("LOT 투입을 취소 후 진행 하세요");
+                return;
+            }
+            if (Convert.ToString(grid1.ActiveRow.Cells["WORKSTATUSCODE"].Value) == "R")
+            {
+                ShowDialog("작업장이 현재 가동 중입니다.비가동 등록 후 진행 하세요.");
+                return;
+            }
+
+            // 생산 실적 등록 SP
+            DBHelper helper = new DBHelper(true);
+            try
+            {
+                helper.ExecuteNoneQuery("SP00_PPActureOutPut_I6", CommandType.StoredProcedure
+                                        , helper.CreateParameter("@PLANTCODE",      Convert.ToString(grid1.ActiveRow.Cells["PLANTCODE"].Value))
+                                        , helper.CreateParameter("@WORKCENTERCODE", Convert.ToString(grid1.ActiveRow.Cells["WORKCENTERCODE"].Value))
+                                        , helper.CreateParameter("@ORDERNO",        Convert.ToString(grid1.ActiveRow.Cells["ORDERNO"].Value))       // 작업지시 번호
+                                       );
+
+                if (helper.RSCODE != "S")
+                {
+                    helper.Rollback();
+                    ShowDialog(helper.RSMSG);
+                    return;
+                }
+                helper.Commit();
+                ShowDialog("정상 적으로 실적 등록을 완료 하였습니다");
+                DoInquire();
+                txtProdQty.Text = "";
+                txtBadQty.Text = "";
+            }
+            catch (Exception ex)
+            {
+                helper.Rollback();
+                ShowDialog(ex.ToString());
+            }
+            finally
+            {
+                helper.Close();
+            }
+
 
         }
         #endregion

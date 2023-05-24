@@ -71,7 +71,7 @@
             this.txtBadQty = new DC00_Component.STextBox(this.components);
             this.sLabel6 = new DC00_Component.SLabel();
             this.btnProdReg = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnOrderClose = new System.Windows.Forms.Button();
             this.grid1 = new DC00_Component.Grid(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gbxHeader)).BeginInit();
             this.gbxHeader.SuspendLayout();
@@ -95,7 +95,7 @@
             this.gbxHeader.ContentPadding.Left = 2;
             this.gbxHeader.ContentPadding.Right = 2;
             this.gbxHeader.ContentPadding.Top = 4;
-            this.gbxHeader.Controls.Add(this.button3);
+            this.gbxHeader.Controls.Add(this.btnOrderClose);
             this.gbxHeader.Controls.Add(this.btnProdReg);
             this.gbxHeader.Controls.Add(this.txtBadQty);
             this.gbxHeader.Controls.Add(this.sLabel6);
@@ -368,14 +368,15 @@
             this.btnProdReg.UseVisualStyleBackColor = true;
             this.btnProdReg.Click += new System.EventHandler(this.btnProdReg_Click);
             // 
-            // button3
+            // btnOrderClose
             // 
-            this.button3.Location = new System.Drawing.Point(871, 50);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(118, 101);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "(7) 작업지시 종료";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnOrderClose.Location = new System.Drawing.Point(871, 50);
+            this.btnOrderClose.Name = "btnOrderClose";
+            this.btnOrderClose.Size = new System.Drawing.Size(118, 101);
+            this.btnOrderClose.TabIndex = 18;
+            this.btnOrderClose.Text = "(7) 작업지시 종료";
+            this.btnOrderClose.UseVisualStyleBackColor = true;
+            this.btnOrderClose.Click += new System.EventHandler(this.btnOrderClose_Click);
             // 
             // grid1
             // 
@@ -489,7 +490,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnOrderClose;
         private System.Windows.Forms.Button btnProdReg;
         private DC00_Component.STextBox txtBadQty;
         private DC00_Component.SLabel sLabel6;

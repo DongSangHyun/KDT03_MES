@@ -10,6 +10,8 @@
         private void InitializeComponent()
         {
             Telerik.Reporting.Barcodes.QRCodeEncoder qrCodeEncoder1 = new Telerik.Reporting.Barcodes.QRCodeEncoder();
+            Telerik.Reporting.Barcodes.QRCodeEncoder qrCodeEncoder2 = new Telerik.Reporting.Barcodes.QRCodeEncoder();
+            Telerik.Reporting.Barcodes.Code128Encoder code128Encoder1 = new Telerik.Reporting.Barcodes.Code128Encoder();
             Telerik.Reporting.ReportParameter reportParameter1 = new Telerik.Reporting.ReportParameter();
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.detail = new Telerik.Reporting.DetailSection();
@@ -40,6 +42,8 @@
             this.textBox21 = new Telerik.Reporting.TextBox();
             this.panel12 = new Telerik.Reporting.Panel();
             this.barcode1 = new Telerik.Reporting.Barcode();
+            this.barcode2 = new Telerik.Reporting.Barcode();
+            this.barcode3 = new Telerik.Reporting.Barcode();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // detail
@@ -77,7 +81,9 @@
             // 
             this.panel2.Docking = Telerik.Reporting.DockingStyle.Top;
             this.panel2.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
-            this.textBox1});
+            this.textBox1,
+            this.barcode1,
+            this.barcode2});
             this.panel2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(0D));
             this.panel2.Name = "panel2";
             this.panel2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(11.8D), Telerik.Reporting.Drawing.Unit.Cm(2D));
@@ -329,7 +335,7 @@
             this.textBox14.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox14.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox14.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox14.Value = "생산일시";
+            this.textBox14.Value = "생산일자";
             // 
             // textBox15
             // 
@@ -430,13 +436,13 @@
             this.textBox21.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(0D);
             this.textBox21.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.textBox21.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox21.Value = "한국 품질재단";
+            this.textBox21.Value = "한가람";
             // 
             // panel12
             // 
             this.panel12.Docking = Telerik.Reporting.DockingStyle.Fill;
             this.panel12.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
-            this.barcode1});
+            this.barcode3});
             this.panel12.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(3.7D));
             this.panel12.Name = "panel12";
             this.panel12.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(11.8D), Telerik.Reporting.Drawing.Unit.Cm(2D));
@@ -446,11 +452,11 @@
             // barcode1
             // 
             this.barcode1.Bindings.Add(new Telerik.Reporting.Binding("Value", "=Fields.LOTNO"));
-            this.barcode1.Docking = Telerik.Reporting.DockingStyle.Left;
+            this.barcode1.Docking = Telerik.Reporting.DockingStyle.None;
             this.barcode1.Encoder = qrCodeEncoder1;
             this.barcode1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(0D));
             this.barcode1.Name = "barcode1";
-            this.barcode1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(11.8D), Telerik.Reporting.Drawing.Unit.Cm(2D));
+            this.barcode1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2D), Telerik.Reporting.Drawing.Unit.Cm(2D));
             this.barcode1.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
             this.barcode1.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(28D);
             this.barcode1.Style.Padding.Bottom = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
@@ -458,6 +464,37 @@
             this.barcode1.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
             this.barcode1.Style.Padding.Top = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
             this.barcode1.Value = "WN1610100013X002";
+            // 
+            // barcode2
+            // 
+            this.barcode2.Bindings.Add(new Telerik.Reporting.Binding("Value", "=Fields.LOTNO"));
+            this.barcode2.Encoder = qrCodeEncoder2;
+            this.barcode2.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(9.6D), Telerik.Reporting.Drawing.Unit.Cm(0D));
+            this.barcode2.Name = "barcode2";
+            this.barcode2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2D), Telerik.Reporting.Drawing.Unit.Cm(2D));
+            this.barcode2.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
+            this.barcode2.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(28D);
+            this.barcode2.Style.Padding.Bottom = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
+            this.barcode2.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
+            this.barcode2.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
+            this.barcode2.Style.Padding.Top = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
+            this.barcode2.Value = "WN1610100013X002";
+            // 
+            // barcode3
+            // 
+            this.barcode3.Bindings.Add(new Telerik.Reporting.Binding("Value", "=Fields.LOTNO"));
+            this.barcode3.Encoder = code128Encoder1;
+            this.barcode3.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(0D));
+            this.barcode3.Name = "barcode3";
+            this.barcode3.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(11.8D), Telerik.Reporting.Drawing.Unit.Cm(2D));
+            this.barcode3.Stretch = false;
+            this.barcode3.Style.BorderWidth.Default = Telerik.Reporting.Drawing.Unit.Point(0.5D);
+            this.barcode3.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(28D);
+            this.barcode3.Style.Padding.Bottom = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
+            this.barcode3.Style.Padding.Left = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
+            this.barcode3.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
+            this.barcode3.Style.Padding.Top = Telerik.Reporting.Drawing.Unit.Cm(0.1D);
+            this.barcode3.Value = "WN1610100013X002";
             // 
             // Report_LotBacodeFERT
             // 
@@ -515,5 +552,7 @@
         private Telerik.Reporting.TextBox textBox21;
         private Telerik.Reporting.Panel panel12;
         private Telerik.Reporting.Barcode barcode1;
+        private Telerik.Reporting.Barcode barcode2;
+        private Telerik.Reporting.Barcode barcode3;
     }
 }
