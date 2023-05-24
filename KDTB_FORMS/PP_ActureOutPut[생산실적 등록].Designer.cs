@@ -70,7 +70,7 @@
             this.txtProdQty = new DC00_Component.STextBox(this.components);
             this.txtBadQty = new DC00_Component.STextBox(this.components);
             this.sLabel6 = new DC00_Component.SLabel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnProdReg = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.grid1 = new DC00_Component.Grid(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gbxHeader)).BeginInit();
@@ -96,7 +96,7 @@
             this.gbxHeader.ContentPadding.Right = 2;
             this.gbxHeader.ContentPadding.Top = 4;
             this.gbxHeader.Controls.Add(this.button3);
-            this.gbxHeader.Controls.Add(this.button2);
+            this.gbxHeader.Controls.Add(this.btnProdReg);
             this.gbxHeader.Controls.Add(this.txtBadQty);
             this.gbxHeader.Controls.Add(this.sLabel6);
             this.gbxHeader.Controls.Add(this.txtProdQty);
@@ -358,14 +358,15 @@
             this.sLabel6.TabIndex = 15;
             this.sLabel6.Text = "불량 수량";
             // 
-            // button2
+            // btnProdReg
             // 
-            this.button2.Location = new System.Drawing.Point(661, 125);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(204, 26);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "(6) 생산 실적 등록";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnProdReg.Location = new System.Drawing.Point(661, 125);
+            this.btnProdReg.Name = "btnProdReg";
+            this.btnProdReg.Size = new System.Drawing.Size(204, 26);
+            this.btnProdReg.TabIndex = 17;
+            this.btnProdReg.Text = "(6) 생산 실적 등록";
+            this.btnProdReg.UseVisualStyleBackColor = true;
+            this.btnProdReg.Click += new System.EventHandler(this.btnProdReg_Click);
             // 
             // button3
             // 
@@ -489,7 +490,7 @@
         #endregion
 
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnProdReg;
         private DC00_Component.STextBox txtBadQty;
         private DC00_Component.SLabel sLabel6;
         private DC00_Component.STextBox txtProdQty;
