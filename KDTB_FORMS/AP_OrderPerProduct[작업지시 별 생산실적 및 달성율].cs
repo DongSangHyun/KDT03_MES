@@ -50,21 +50,21 @@ namespace KDTB_FORMS
             #region ▶ GRID ◀
             _GridUtil.InitializeGrid(this.grid1);
             
-            _GridUtil.InitColumnUltraGrid(grid1, "PLANTCODE",      "공장",         GridColDataType_emu.VarChar,     120, Infragistics.Win.HAlign.Left,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ORDERNO",        "작업지시번호", GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ITEMCODE",       "품목",         GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",       "품목명",       GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "WORKCENTERCODE", "작업장",       GridColDataType_emu.VarChar,     120, Infragistics.Win.HAlign.Left,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "WORKCENTERNAME", "작업장명",     GridColDataType_emu.VarChar,     150, Infragistics.Win.HAlign.Left,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ORDERQTY",       "지시수량",     GridColDataType_emu.Double,       80, Infragistics.Win.HAlign.Right, true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "UNITCODE",       "단위",         GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Left,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ORDERDATE",      "지시일자",     GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Center,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "PRODQTY",        "양품수량",     GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "BADQTY",         "불량수량",     GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "TOTALPRODQTY",   "총생산수량",   GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ACTRATE",        "지시달성율",   GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Right,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "FIRSTSTARTDATE", "지시시작일시", GridColDataType_emu.DateTime24,  160, Infragistics.Win.HAlign.Left,  true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ORDERCLOSEDATE", "지시종료일시", GridColDataType_emu.DateTime24,  160, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "PLANTCODE",      "공장",             GridColDataType_emu.VarChar,     120, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ORDERNO",        "작업지시번호",     GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ITEMCODE",       "품목",             GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",       "품목명",           GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "WORKCENTERCODE", "작업장",           GridColDataType_emu.VarChar,     120, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "WORKCENTERNAME", "작업장명",         GridColDataType_emu.VarChar,     150, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ORDERQTY",       "지시수량",         GridColDataType_emu.Double,       80, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "UNITCODE",       "단위",             GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ORDERDATE",      "지시일자",         GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Center,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "PRODQTY",        "양품수량",         GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "BADQTY",         "불량수량",         GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "TOTALPRODQTY",   "총생산수량",       GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ACTRATE",        "지시달성율",       GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Right,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "FIRSTSTARTDATE", "지시시작일시",     GridColDataType_emu.DateTime24,  160, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ORDERCLOSEDATE", "지시종료일시",     GridColDataType_emu.DateTime24,  160, Infragistics.Win.HAlign.Left,  true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "TOTALRUNTIME",   "총운영시간(분)",   GridColDataType_emu.Integer,     100, Infragistics.Win.HAlign.Left,  true, false);
             _GridUtil.SetInitUltraGridBind(grid1);
             #endregion
