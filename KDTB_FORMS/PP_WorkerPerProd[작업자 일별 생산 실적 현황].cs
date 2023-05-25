@@ -12,6 +12,7 @@
 #region < USING AREA >
 using System;
 using System.Data;
+using System.Drawing;
 using DC_POPUP;
 
 using DC00_assm;
@@ -121,10 +122,113 @@ namespace KDTB_FORMS
                                     , helper.CreateParameter("@RSENDDATE",  sSendDate )
                                     );
 
-               this.ClosePrgForm();
+               this.ClosePrgForm(); // 상태 창 닫기 
                 if (rtnDtTemp.Rows.Count != 0)
                 {
-                    this.grid1.DataSource = rtnDtTemp;
+                    DataTable dtSubTotal = new DataTable();
+                    dtSubTotal = rtnDtTemp.Clone(); // 참조형식인 DataTable 클래스를 깊은복사 기능.
+
+                    double dGPordQty  = 0;
+                    double dGBadQty   = 0;
+                    double dGTotalQty = 0;
+
+                    // 데이터의 기준 
+                    string sWorkerId = Convert.ToString(rtnDtTemp.Rows[0]["WORKER"]);
+                    double dProdQty  = Convert.ToDouble(rtnDtTemp.Rows[0]["PRODQTY"]);
+                    double dBadQty   = Convert.ToDouble(rtnDtTemp.Rows[0]["BADQTY"]);
+                    double dTotalQty = Convert.ToDouble(rtnDtTemp.Rows[0]["TOTALQTY"]);
+
+
+                    dtSubTotal.Rows.Add(new object[]
+                    {
+                        Convert.ToString(rtnDtTemp.Rows[0]["PLANTCODE"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["WORKER"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["WORKCENTERCODE"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["WORKCENTERNAME"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["ITEMCODE"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["ITEMNAME"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["PRODDATE"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["PRODQTY"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["BADQTY"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["TOTALQTY"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["BADRATE"]),
+                        Convert.ToString(rtnDtTemp.Rows[0]["MAKEDATE"])
+                    });
+
+                    for (int i = 1; i < rtnDtTemp.Rows.Count; i++)
+                    {
+                        if (sWorkerId == Convert.ToString(rtnDtTemp.Rows[i]["WORKER"]))
+                        {
+                            dProdQty += Convert.ToDouble(rtnDtTemp.Rows[i]["PRODQTY"]);
+                            dBadQty += Convert.ToDouble(rtnDtTemp.Rows[i]["BADQTY"]);
+                            dTotalQty += Convert.ToDouble(rtnDtTemp.Rows[i]["TOTALQTY"]);
+
+
+                            dtSubTotal.Rows.Add(new object[]
+                                                {
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["PLANTCODE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["WORKER"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["WORKCENTERCODE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["WORKCENTERNAME"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["ITEMCODE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["ITEMNAME"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["PRODDATE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["PRODQTY"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["BADQTY"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["TOTALQTY"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["BADRATE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["MAKEDATE"])
+                                                }); 
+                        }
+                        else
+                        {
+                            dGPordQty  += dProdQty;
+                            dGBadQty   += dBadQty;
+                            dGTotalQty += dTotalQty;
+
+                            // 작업자 ID 가 다른경우
+                            dtSubTotal.Rows.Add(new object[]
+                            {
+                                "","","","","","","합 계 : ", dProdQty,dBadQty,dTotalQty,Convert.ToString(Math.Round((dBadQty * 100 /dTotalQty),1) + " %"), null
+                            });
+                            dProdQty  = Convert.ToDouble(rtnDtTemp.Rows[i]["PRODQTY"]);
+                            dBadQty   = Convert.ToDouble(rtnDtTemp.Rows[i]["BADQTY"]);
+                            dTotalQty = Convert.ToDouble(rtnDtTemp.Rows[i]["TOTALQTY"]);
+
+                            sWorkerId = Convert.ToString(rtnDtTemp.Rows[i]["WORKER"]);
+                            dtSubTotal.Rows.Add(new object[]
+                                                {
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["PLANTCODE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["WORKER"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["WORKCENTERCODE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["WORKCENTERNAME"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["ITEMCODE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["ITEMNAME"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["PRODDATE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["PRODQTY"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["BADQTY"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["TOTALQTY"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["BADRATE"]),
+                                                    Convert.ToString(rtnDtTemp.Rows[i]["MAKEDATE"])
+                                                });
+                        }
+                    }
+                    dGPordQty  += dProdQty;
+                    dGBadQty   += dBadQty;
+                    dGTotalQty += dTotalQty;
+                    // 반복문이 종료 되었을때 마지막 합계 추가
+                    dtSubTotal.Rows.Add(new object[]
+                     {
+                          "","","","","","","합 계 : ", dProdQty,dBadQty,dTotalQty,Convert.ToString(Math.Round((dBadQty * 100 /dTotalQty),1) + " %"), null
+                     });
+
+
+                    dtSubTotal.Rows.Add(new object[]
+                    {
+                          "","","","","","","총 합계 :", dGPordQty,dGBadQty,dGTotalQty,Convert.ToString(Math.Round((dGBadQty * 100 /dGTotalQty),1) + " %"), null
+                    });
+
+                    this.grid1.DataSource = dtSubTotal;
                 }
             }
             catch (Exception ex)
@@ -139,7 +243,11 @@ namespace KDTB_FORMS
 
         private void grid1_InitializeRow(object sender, InitializeRowEventArgs e)
         {
-            // 
+                // 행에 특정 데이터 가 처리 될 경우 
+                if (Convert.ToString(e.Row.Cells["PRODDATE"].Value) == "합 계 : ")
+                {
+                    e.Row.Appearance.BackColor = Color.Azure;
+                }
         }
 
         private void grid1_InitializeLayout(object sender, InitializeLayoutEventArgs e)
