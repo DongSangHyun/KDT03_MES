@@ -18,6 +18,9 @@ using DC00_assm;
 using DC00_WinForm;
 
 using Infragistics.Win.UltraWinGrid;
+using System.Security.AccessControl;
+using System.Windows.Forms;
+using System.Runtime.InteropServices.ComTypes;
 #endregion
 
 namespace KDTB_FORMS
@@ -45,19 +48,24 @@ namespace KDTB_FORMS
         private void AP_OrderPerProduct_Load(object sender, EventArgs e)
         {
             #region ▶ GRID ◀
-            //_GridUtil.InitializeGrid(this.grid1, true, true, false, "", false);
-            //_GridUtil.InitColumnUltraGrid(grid1, "PLANTCODE", "공장", true, GridColDataType_emu.VarChar, 120, 120, Infragistics.Win.HAlign.Left, true, false);
             _GridUtil.InitializeGrid(this.grid1);
             
-            _GridUtil.InitColumnUltraGrid(grid1, "PLANTCODE",      "공장",      GridColDataType_emu.VarChar,    120, Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ITEMCODE",       "품목",      GridColDataType_emu.VarChar,    140, Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",       "품목명",    GridColDataType_emu.VarChar,    140, Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "ITEMTYPE",       "품목구분",  GridColDataType_emu.VarChar,    120, Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "LOTNO",          "LOTNO",     GridColDataType_emu.VarChar,    150, Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "WORKCENTERCODE", "작업장",    GridColDataType_emu.VarChar,    120, Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "WORKCENTERNAME", "작업장명",  GridColDataType_emu.VarChar,    120, Infragistics.Win.HAlign.Left,    true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "STOCKQTY",       "재고수량",  GridColDataType_emu.Double,     100, Infragistics.Win.HAlign.Right,   true, false);
-            _GridUtil.InitColumnUltraGrid(grid1, "UNITCODE",       "단위",      GridColDataType_emu.VarChar,    100, Infragistics.Win.HAlign.Left,    true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "PLANTCODE",      "공장",         GridColDataType_emu.VarChar,     120, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ORDERNO",        "작업지시번호", GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ITEMCODE",       "품목",         GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",       "품목명",       GridColDataType_emu.VarChar,     140, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "WORKCENTERCODE", "작업장",       GridColDataType_emu.VarChar,     120, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "WORKCENTERNAME", "작업장명",     GridColDataType_emu.VarChar,     150, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ORDERQTY",       "지시수량",     GridColDataType_emu.Double,       80, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "UNITCODE",       "단위",         GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ORDERDATE",      "지시일자",     GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "PRODQTY",        "양품수량",     GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "BADQTY",         "불량수량",     GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "TOTALPRODQTY",   "총생산수량",   GridColDataType_emu.Double,      100, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ACTRATE",        "지시달성율",   GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "FIRSTSTARTDATE", "지시시작일시", GridColDataType_emu.DateTime24,  160, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "ORDERCLOSEDATE", "지시종료일시", GridColDataType_emu.DateTime24,  160, Infragistics.Win.HAlign.Left,  true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "TOTALRUNTIME",   "총운영시간",   GridColDataType_emu.VarChar,     100, Infragistics.Win.HAlign.Left,  true, false);
             _GridUtil.SetInitUltraGridBind(grid1);
             #endregion
 
@@ -66,19 +74,22 @@ namespace KDTB_FORMS
             Common.FillComboboxMaster(this.cboPlantCode, rtnDtTemp );
             UltraGridUtil.SetComboUltraGrid(this.grid1, "PLANTCODE", rtnDtTemp );
 
-            rtnDtTemp = Common.StandardCODE("ITEMTYPE");     //품목 구분
-            Common.FillComboboxMaster(this.cboItemType, rtnDtTemp );
-            UltraGridUtil.SetComboUltraGrid(this.grid1, "ITEMTYPE", rtnDtTemp);
+            rtnDtTemp = Common.GET_Workcenter_Code();     //작업장
+            Common.FillComboboxMaster(this.cboWorkcenterCode, rtnDtTemp );
 
             #endregion
 
             #region ▶ POP-UP ◀
             BizTextBoxManager btbManager = new BizTextBoxManager();
-            btbManager.PopUpAdd(txtItemCode_H, txtItemName_H, "ITEM_MASTER");
+            btbManager.PopUpAdd(txtItemCode, txtItemName, "ITEM_MASTER");
             #endregion
 
             #region ▶ ENTER-MOVE ◀
             cboPlantCode.Value = plantCode;
+
+            // 현재 월 의 1일 부터
+            dtpStart.Value = string.Format("{0:yyyy-MM-01}", DateTime.Now);
+
             #endregion
         }
         #endregion
@@ -96,17 +107,21 @@ namespace KDTB_FORMS
             {
                 base.DoInquire();
                 _GridUtil.Grid_Clear(grid1);
-                string sPlantCode  = Convert.ToString(cboPlantCode.Value);
-                string sItemType   = Convert.ToString(cboItemType.Value);
-                string sLotNo      = Convert.ToString(txtLotNo.Text);
-                string sItemCode   = Convert.ToString(txtItemCode_H.Text);
+                string sPlantCode      = Convert.ToString(cboPlantCode.Value);
+                string sWorkcenterCode = Convert.ToString(cboWorkcenterCode.Value);
+                string sOrderrNo       = Convert.ToString(txtOrderNo.Text);
+                string sItemCode       = Convert.ToString(txtItemCode.Text);
+                string sStartDate      = string.Format("{0:yyyy-MM-dd}", dtpStart.Value);
+                string sEndDate        = string.Format("{0:yyyy-MM-dd}", dtpEnd.Value);
 
 
-                rtnDtTemp = helper.FillTable("PP_STockWIP_S1", CommandType.StoredProcedure
-                                                                   , helper.CreateParameter("PLANTCODE", sPlantCode )                  
-                                                                   , helper.CreateParameter("ITEMTYPE",  sItemType )
-                                                                   , helper.CreateParameter("LOTNO",     sLotNo    )
-                                                                   , helper.CreateParameter("ITEMCODE",  sItemCode )
+                rtnDtTemp = helper.FillTable("SP00_AP_OrderPerProd_S1", CommandType.StoredProcedure
+                                                                   , helper.CreateParameter("@PLANTCODE",     sPlantCode )                  
+                                                                   , helper.CreateParameter("@WORKCENTERCODE",sWorkcenterCode)
+                                                                   , helper.CreateParameter("@ORDERRNO",      sOrderrNo)
+                                                                   , helper.CreateParameter("@ITEMCODE",      sItemCode)
+                                                                   , helper.CreateParameter("@STARTDATE",     sStartDate)
+                                                                   , helper.CreateParameter("@ENDDATE",       sEndDate)
                                                                    );
                 this.ClosePrgForm();
                 this.grid1.DataSource = rtnDtTemp;
