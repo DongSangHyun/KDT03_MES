@@ -86,7 +86,7 @@
             this.gbxHeader.Controls.Add(this.cboPlantCode);
             this.gbxHeader.Controls.Add(this.lblPlantCode);
             this.gbxHeader.Location = new System.Drawing.Point(3, 3);
-            this.gbxHeader.Size = new System.Drawing.Size(1278, 65);
+            this.gbxHeader.Size = new System.Drawing.Size(1156, 65);
             // 
             // gbxBody
             // 
@@ -96,7 +96,7 @@
             this.gbxBody.ContentPadding.Top = 6;
             this.gbxBody.Controls.Add(this.grid1);
             this.gbxBody.Location = new System.Drawing.Point(3, 68);
-            this.gbxBody.Size = new System.Drawing.Size(1278, 707);
+            this.gbxBody.Size = new System.Drawing.Size(1156, 230);
             // 
             // lblPlantCode
             // 
@@ -202,7 +202,7 @@
             this.grid1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.grid1.Location = new System.Drawing.Point(6, 6);
             this.grid1.Name = "grid1";
-            this.grid1.Size = new System.Drawing.Size(1266, 695);
+            this.grid1.Size = new System.Drawing.Size(1144, 218);
             this.grid1.TabIndex = 6;
             this.grid1.TabStop = false;
             this.grid1.Text = "grid1";
@@ -210,6 +210,8 @@
             this.grid1.UpdateMode = Infragistics.Win.UltraWinGrid.UpdateMode.OnCellChange;
             this.grid1.UseFlatMode = Infragistics.Win.DefaultableBoolean.True;
             this.grid1.UseOsThemes = Infragistics.Win.DefaultableBoolean.False;
+            this.grid1.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.grid1_InitializeLayout);
+            this.grid1.InitializeRow += new Infragistics.Win.UltraWinGrid.InitializeRowEventHandler(this.grid1_InitializeRow);
             // 
             // lblDate
             // 
@@ -315,7 +317,7 @@
             // 
             // PP_WorkerPerProd
             // 
-            this.ClientSize = new System.Drawing.Size(1284, 778);
+            this.ClientSize = new System.Drawing.Size(1162, 301);
             this.Name = "PP_WorkerPerProd";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Text = "작업자 일별 생산 실적 현황";

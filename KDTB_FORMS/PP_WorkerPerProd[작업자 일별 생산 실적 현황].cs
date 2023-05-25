@@ -53,12 +53,24 @@ namespace KDTB_FORMS
             _GridUtil.InitColumnUltraGrid(grid1, "ITEMCODE",       "품번",       GridColDataType_emu.VarChar,    100,  Infragistics.Win.HAlign.Left,   true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",       "품명",       GridColDataType_emu.VarChar,    100,  Infragistics.Win.HAlign.Left,   true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "PRODDATE",       "생산일자",   GridColDataType_emu.VarChar,    100,  Infragistics.Win.HAlign.Center, true, false);
+
             _GridUtil.InitColumnUltraGrid(grid1, "PRODQTY",        "양품수량",   GridColDataType_emu.Double,     100,  Infragistics.Win.HAlign.Right,  true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "BADQTY",         "불량수량",   GridColDataType_emu.Double,     100,  Infragistics.Win.HAlign.Right,  true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "TOTALQTY",       "총생산수량", GridColDataType_emu.Double,     100,  Infragistics.Win.HAlign.Right,  true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "BADRATE",        "불량률",     GridColDataType_emu.VarChar,    100,  Infragistics.Win.HAlign.Right,  true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "MAKEDATE",       "생산일시",   GridColDataType_emu.DateTime24, 150,  Infragistics.Win.HAlign.Center, true, false);
-            _GridUtil.SetInitUltraGridBind(grid1); 
+            _GridUtil.SetInitUltraGridBind(grid1);
+
+
+            // 그리드 병합 
+            grid1.DisplayLayout.Override.MergedCellContentArea                     = MergedCellContentArea.VisibleRect;
+            grid1.DisplayLayout.Bands[0].Columns["PLANTCODE"].MergedCellStyle      = MergedCellStyle.Always;
+            grid1.DisplayLayout.Bands[0].Columns["WORKER"].MergedCellStyle         = MergedCellStyle.Always;
+            grid1.DisplayLayout.Bands[0].Columns["WORKCENTERCODE"].MergedCellStyle = MergedCellStyle.Always;
+            grid1.DisplayLayout.Bands[0].Columns["WORKCENTERNAME"].MergedCellStyle = MergedCellStyle.Always;
+            grid1.DisplayLayout.Bands[0].Columns["ITEMCODE"].MergedCellStyle       = MergedCellStyle.Always;
+            grid1.DisplayLayout.Bands[0].Columns["ITEMNAME"].MergedCellStyle       = MergedCellStyle.Always;
+            grid1.DisplayLayout.Bands[0].Columns["PRODDATE"].MergedCellStyle       = MergedCellStyle.Always;
 
             #endregion
 
@@ -97,14 +109,16 @@ namespace KDTB_FORMS
                 _GridUtil.Grid_Clear(grid1);
                 
                 
-                string sPlantCode      = DBHelper.nvlString(this.cboPlantCode.Value);
-                string sStartDate      = string.Format("{0:yyyy-MM-dd}" ,dtStart_H.Value);
-                string sSendDate       = string.Format("{0:yyyy-MM-dd}", dtEnd_H.Value);
+                string sPlantCode = DBHelper.nvlString(this.cboPlantCode.Value);
+                string sWorkerID  = Convert.ToString(txtWorkerId.Text);
+                string sStartDate = string.Format("{0:yyyy-MM-dd}" ,dtStart_H.Value);
+                string sSendDate  = string.Format("{0:yyyy-MM-dd}", dtEnd_H.Value);
 
-                rtnDtTemp = helper.FillTable("PP_WCTRunStopList_S1", CommandType.StoredProcedure
-                                    , helper.CreateParameter("PLANTCODE",      sPlantCode        )
-                                    , helper.CreateParameter("RSSTARTDATE",    sStartDate        )
-                                    , helper.CreateParameter("RSENDDATE",      sSendDate         )
+                rtnDtTemp = helper.FillTable("SP00_PP_WorkerPerProd_S1", CommandType.StoredProcedure
+                                    , helper.CreateParameter("@PLANTCODE",  sPlantCode)
+                                    , helper.CreateParameter("@WORKERID",   sWorkerID)
+                                    , helper.CreateParameter("@RSSTARTDATE",sStartDate)
+                                    , helper.CreateParameter("@RSENDDATE",  sSendDate )
                                     );
 
                this.ClosePrgForm();
@@ -121,7 +135,24 @@ namespace KDTB_FORMS
             {
                 helper.Close();
             }
-        }        
+        }
+
+        private void grid1_InitializeRow(object sender, InitializeRowEventArgs e)
+        {
+            // 
+        }
+
+        private void grid1_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            CustomMergedCellEvalutor CM1 = new CustomMergedCellEvalutor("WORKER", "WORKCENTERCODE");
+            e.Layout.Bands[0].Columns["WORKCENTERNAME"].MergedCellEvaluator = CM1;
+            e.Layout.Bands[0].Columns["ITEMCODE"].MergedCellEvaluator = CM1;
+            e.Layout.Bands[0].Columns["ITEMNAME"].MergedCellEvaluator = CM1;
+            
+            CustomMergedCellEvalutor CM2 = new CustomMergedCellEvalutor("WORKCENTERCODE", "PRODDATE");
+            e.Layout.Bands[0].Columns["PRODDATE"].MergedCellEvaluator = CM2;
+
+        }
     }
 }
 
