@@ -147,6 +147,12 @@
     <Compile Include="PP_StockWIP[재공 재고조회].designer.cs">
       <DependentUpon>PP_StockWIP[재공 재고조회].cs</DependentUpon>
     </Compile>
+    <Compile Include="PP_WorkerPerProd[작업자 일별 생산 실적 현황].cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PP_WorkerPerProd[작업자 일별 생산 실적 현황].designer.cs">
+      <DependentUpon>PP_WorkerPerProd[작업자 일별 생산 실적 현황].cs</DependentUpon>
+    </Compile>
     <Compile Include="PP_WCTRunStopList[작업장 비가동 현황 및 사유관리].cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PP_StockWIP[재공 재고조회].resx">
       <DependentUpon>PP_StockWIP[재공 재고조회].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PP_WorkerPerProd[작업자 일별 생산 실적 현황].resx">
+      <DependentUpon>PP_WorkerPerProd[작업자 일별 생산 실적 현황].cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PP_WCTRunStopList[작업장 비가동 현황 및 사유관리].resx">
       <DependentUpon>PP_WCTRunStopList[작업장 비가동 현황 및 사유관리].cs</DependentUpon>
