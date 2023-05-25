@@ -135,6 +135,12 @@
     <Compile Include="PP_StockWIPRec[재공 재고 입출 이력].designer.cs">
       <DependentUpon>PP_StockWIPRec[재공 재고 입출 이력].cs</DependentUpon>
     </Compile>
+    <Compile Include="AP_OrderPerProduct[작업지시 별 생산실적 및 달성율].cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AP_OrderPerProduct[작업지시 별 생산실적 및 달성율].designer.cs">
+      <DependentUpon>AP_OrderPerProduct[작업지시 별 생산실적 및 달성율].cs</DependentUpon>
+    </Compile>
     <Compile Include="PP_StockWIP[재공 재고조회].cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PP_StockWIPRec[재공 재고 입출 이력].resx">
       <DependentUpon>PP_StockWIPRec[재공 재고 입출 이력].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AP_OrderPerProduct[작업지시 별 생산실적 및 달성율].resx">
+      <DependentUpon>AP_OrderPerProduct[작업지시 별 생산실적 및 달성율].cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PP_StockWIP[재공 재고조회].resx">
       <DependentUpon>PP_StockWIP[재공 재고조회].cs</DependentUpon>
