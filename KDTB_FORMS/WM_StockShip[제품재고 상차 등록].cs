@@ -149,6 +149,8 @@ namespace KDTB_FORMS
             DBHelper helper = new DBHelper(true);
             try
             {
+                string sShipNo = string.Empty;  // 상차 실적 번호 
+                int iShipSeq = 1;
                 foreach (DataRow dr in dt.Rows)
                 {
 
@@ -164,6 +166,8 @@ namespace KDTB_FORMS
                                             , helper.CreateParameter("@CARNO",     sCarNo)
                                             , helper.CreateParameter("@WORKERID",  sWorkerId)
                                             , helper.CreateParameter("@CUSTID",    sCustId)
+                                            , helper.CreateParameter("@SHIPNO",    sShipNo)
+                                            , helper.CreateParameter("@SHIPSEQ",   iShipSeq)
                                             );
 
                     if (helper.RSCODE != "S")
@@ -172,6 +176,8 @@ namespace KDTB_FORMS
                         ShowDialog(helper.RSMSG);
                         return;
                     }
+                    sShipNo = helper.RSMSG;
+                    iShipSeq++;
                 }
                 helper.Commit();
                 ShowDialog("정상적으로 출고 등록을 완료 하였습니다.");
