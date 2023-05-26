@@ -100,6 +100,18 @@
     <Compile Include="MM_STockMMrec[자재 입출고 이력].designer.cs">
       <DependentUpon>MM_STockMMrec[자재 입출고 이력].cs</DependentUpon>
     </Compile>
+    <Compile Include="WM_StockShip[제품재고 상차 등록].cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WM_StockShip[제품재고 상차 등록].designer.cs">
+      <DependentUpon>WM_StockShip[제품재고 상차 등록].cs</DependentUpon>
+    </Compile>
+    <Compile Include="WM_ProdInStock[제품창고 입고].cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WM_ProdInStock[제품창고 입고].designer.cs">
+      <DependentUpon>WM_ProdInStock[제품창고 입고].cs</DependentUpon>
+    </Compile>
     <Compile Include="PP_ActureOutPut[생산실적 등록].cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +179,12 @@
       <DependentUpon>PP_WCTRunStopList[작업장 비가동 현황 및 사유관리].cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WM_StockWm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WM_StockWm.Designer.cs">
+      <DependentUpon>WM_StockWm.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AP_ProdPlan[생산계획 편성및 작업지시 확정].resx">
@@ -183,6 +201,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM_STockMMrec[자재 입출고 이력].resx">
       <DependentUpon>MM_STockMMrec[자재 입출고 이력].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WM_StockShip[제품재고 상차 등록].resx">
+      <DependentUpon>WM_StockShip[제품재고 상차 등록].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WM_ProdInStock[제품창고 입고].resx">
+      <DependentUpon>WM_ProdInStock[제품창고 입고].cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PP_ActureOutPut[생산실적 등록].resx">
       <DependentUpon>PP_ActureOutPut[생산실적 등록].cs</DependentUpon>
@@ -218,6 +242,9 @@
       <DependentUpon>PP_WCTRunStopList[작업장 비가동 현황 및 사유관리].cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="WM_StockWm.resx">
+      <DependentUpon>WM_StockWm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DC_POPUP\DC_POPUP.csproj">
