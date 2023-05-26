@@ -1,7 +1,7 @@
 ﻿#region < HEADER AREA >
 // *---------------------------------------------------------------------------------------------*
 //   Form ID      : WM_StockShip
-//   Form Name    : 제품창고 입고
+//   Form Name    : 제품 재고 상차 등록
 //   Name Space   : KDTB_FORMS
 //   Created Date : 2023/05
 //   Made By      : DSH
@@ -56,6 +56,7 @@ namespace KDTB_FORMS
             _GridUtil.InitColumnUltraGrid(grid1, "ITEMNAME",  "품목명",   GridColDataType_emu.VarChar,     140,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "LOTNO",     "LOTNO",    GridColDataType_emu.VarChar,     170,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "STOCKQTY",  "재고수량", GridColDataType_emu.Double,      100,  Infragistics.Win.HAlign.Right,   true, false);
+            _GridUtil.InitColumnUltraGrid(grid1, "INDATE",    "입고일자", GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,   true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "UNITCODE",  "단위",     GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "MAKER",     "입고자",   GridColDataType_emu.VarChar,     100,  Infragistics.Win.HAlign.Left,    true, false);
             _GridUtil.InitColumnUltraGrid(grid1, "MAKEDATE",  "입고일시", GridColDataType_emu.DateTime24,  170,  Infragistics.Win.HAlign.Left,    true, false);
@@ -72,6 +73,8 @@ namespace KDTB_FORMS
 
             BizTextBoxManager bizText = new BizTextBoxManager();
             bizText.PopUpAdd(txtItemCode_H, txtItemName_H, "ITEM_MASTER");
+            bizText.PopUpAdd(txtWorkerId,   txtWorkerName, "WORKER_MASTER");
+            bizText.PopUpAdd(txtCustId,     txtCustName,   "CUST_MASTER");
 
             #endregion
 
@@ -151,8 +154,9 @@ namespace KDTB_FORMS
 
                     if (Convert.ToString(dr["CHK"]) == "0") continue;
                     helper.ExecuteNoneQuery("SP00_WM_StockShip_U1", CommandType.StoredProcedure
-                                            , helper.CreateParameter("@LOTNO",    dr["LOTNO"])
-                                            , helper.CreateParameter("@MAKER",    LoginInfo.UserID)
+                                            , helper.CreateParameter("@PLANTCODE",    dr["PLANTCODE"])
+                                            , helper.CreateParameter("@LOTNO",        dr["LOTNO"])
+                                            , helper.CreateParameter("@MAKER",        LoginInfo.UserID)
                                             );
 
                     if (helper.RSCODE != "S")
