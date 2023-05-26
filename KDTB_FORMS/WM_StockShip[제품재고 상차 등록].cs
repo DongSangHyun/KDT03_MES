@@ -158,9 +158,12 @@ namespace KDTB_FORMS
                     string sWorkerId = txtWorkerId.Text; // 차량 운송자
                     string sCustId   = txtCustId.Text;   // 납품 할 거래처
                     helper.ExecuteNoneQuery("SP00_WM_StockShip_U1", CommandType.StoredProcedure
-                                            , helper.CreateParameter("@PLANTCODE",    dr["PLANTCODE"])
-                                            , helper.CreateParameter("@LOTNO",        dr["LOTNO"])
-                                            , helper.CreateParameter("@MAKER",        LoginInfo.UserID)
+                                            , helper.CreateParameter("@PLANTCODE", dr["PLANTCODE"])
+                                            , helper.CreateParameter("@LOTNO",     dr["LOTNO"])
+                                            , helper.CreateParameter("@MAKER",     LoginInfo.UserID)
+                                            , helper.CreateParameter("@CARNO",     sCarNo)
+                                            , helper.CreateParameter("@WORKERID",  sWorkerId)
+                                            , helper.CreateParameter("@CUSTID",    sCustId)
                                             );
 
                     if (helper.RSCODE != "S")
