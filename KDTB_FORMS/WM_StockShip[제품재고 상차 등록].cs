@@ -153,6 +153,10 @@ namespace KDTB_FORMS
                 {
 
                     if (Convert.ToString(dr["CHK"]) == "0") continue;
+
+                    string sCarNo    = txtCarNo.Text;    // 상차 실적 등록 할 차량번호
+                    string sWorkerId = txtWorkerId.Text; // 차량 운송자
+                    string sCustId   = txtCustId.Text;   // 납품 할 거래처
                     helper.ExecuteNoneQuery("SP00_WM_StockShip_U1", CommandType.StoredProcedure
                                             , helper.CreateParameter("@PLANTCODE",    dr["PLANTCODE"])
                                             , helper.CreateParameter("@LOTNO",        dr["LOTNO"])
