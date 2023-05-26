@@ -1,6 +1,6 @@
 ﻿#region < HEADER AREA >
 // *---------------------------------------------------------------------------------------------*
-//   Form ID      : WM_StockShip
+//   Form ID      : WM_StockShip_T
 //   Form Name    : 제품 재고 상차 등록
 //   Name Space   : KDTB_FORMS
 //   Created Date : 2023/05
@@ -26,7 +26,7 @@ using Telerik.Reporting;
 
 namespace KDTB_FORMS
 {
-    public partial class WM_StockShip : DC00_WinForm.BaseMDIChildForm
+    public partial class WM_StockShip_T : DC00_WinForm.BaseMDIChildForm
     {
 
         #region < MEMBER AREA >
@@ -38,7 +38,7 @@ namespace KDTB_FORMS
 
 
         #region < CONSTRUCTOR >
-        public WM_StockShip()
+        public WM_StockShip_T()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace KDTB_FORMS
 
 
         #region < FORM EVENTS >
-        private void WM_StockShip_Load(object sender, EventArgs e)
+        private void WM_StockShip_T_Load(object sender, EventArgs e)
         {
             #region ▶ GRID ◀
             _GridUtil.InitializeGrid(this.grid1);
@@ -159,6 +159,12 @@ namespace KDTB_FORMS
                     string sCarNo    = txtCarNo.Text;    // 상차 실적 등록 할 차량번호
                     string sWorkerId = txtWorkerId.Text; // 차량 운송자
                     string sCustId   = txtCustId.Text;   // 납품 할 거래처
+
+                    if (sCarNo == "" || sWorkerId == "" || sCustId == "")
+                    {
+                        ShowDialog("필수입력 항목이 누락 되었습니다.");
+                        return;
+                    }
                     helper.ExecuteNoneQuery("SP00_WM_StockShip_U1", CommandType.StoredProcedure
                                             , helper.CreateParameter("@PLANTCODE", dr["PLANTCODE"])
                                             , helper.CreateParameter("@LOTNO",     dr["LOTNO"])

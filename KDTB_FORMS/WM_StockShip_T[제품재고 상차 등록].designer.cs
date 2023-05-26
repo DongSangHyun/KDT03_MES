@@ -1,6 +1,6 @@
 ﻿namespace KDTB_FORMS
 {
-    partial class WM_StockShip
+    partial class WM_StockShip_T
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -511,13 +511,13 @@
             this.sLabel4.TabIndex = 208;
             this.sLabel4.Text = "거래처";
             // 
-            // WM_StockShip
+            // WM_StockShip_T
             // 
             this.ClientSize = new System.Drawing.Size(925, 428);
-            this.Name = "WM_StockShip";
+            this.Name = "WM_StockShip_T";
             this.Padding = new System.Windows.Forms.Padding(3);
             this.Text = "제품 재고 상차 등록";
-            this.Load += new System.EventHandler(this.WM_StockShip_Load);
+            this.Load += new System.EventHandler(this.WM_StockShip_T_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gbxHeader)).EndInit();
             this.gbxHeader.ResumeLayout(false);
             this.gbxHeader.PerformLayout();
