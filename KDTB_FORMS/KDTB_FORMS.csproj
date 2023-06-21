@@ -100,6 +100,18 @@
     <Compile Include="MM_STockMMrec[자재 입출고 이력].designer.cs">
       <DependentUpon>MM_STockMMrec[자재 입출고 이력].cs</DependentUpon>
     </Compile>
+    <Compile Include="PP_LotTracking[LOT 트래킹_추적].cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PP_LotTracking[LOT 트래킹_추적].designer.cs">
+      <DependentUpon>PP_LotTracking[LOT 트래킹_추적].cs</DependentUpon>
+    </Compile>
+    <Compile Include="WM_TradingManagerment[제품출고 이력 및 거래 명세서 발행].cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WM_TradingManagerment[제품출고 이력 및 거래 명세서 발행].Designer.cs">
+      <DependentUpon>WM_TradingManagerment[제품출고 이력 및 거래 명세서 발행].cs</DependentUpon>
+    </Compile>
     <Compile Include="WM_StockOut[제품 출고 등록].cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,6 +219,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MM_STockMMrec[자재 입출고 이력].resx">
       <DependentUpon>MM_STockMMrec[자재 입출고 이력].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PP_LotTracking[LOT 트래킹_추적].resx">
+      <DependentUpon>PP_LotTracking[LOT 트래킹_추적].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WM_TradingManagerment[제품출고 이력 및 거래 명세서 발행].resx">
+      <DependentUpon>WM_TradingManagerment[제품출고 이력 및 거래 명세서 발행].cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WM_StockOut[제품 출고 등록].resx">
       <DependentUpon>WM_StockOut[제품 출고 등록].cs</DependentUpon>

@@ -28,7 +28,7 @@
             // 
             // detail
             // 
-            this.detail.Height = Telerik.Reporting.Drawing.Unit.Cm(9D);
+            this.detail.Height = Telerik.Reporting.Drawing.Unit.Cm(3.6D);
             this.detail.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.textBox1,
             this.barcode1,

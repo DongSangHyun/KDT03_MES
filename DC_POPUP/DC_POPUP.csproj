@@ -165,12 +165,6 @@
     <Compile Include="ReportViewr2.Designer.cs">
       <DependentUpon>ReportViewr2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_specification_on_transaction.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Report_specification_on_transaction.Designer.cs">
-      <DependentUpon>Report_specification_on_transaction.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -200,6 +194,12 @@
     <Compile Include="Report_LotBacodeFERT.designer.cs">
       <DependentUpon>Report_LotBacodeFERT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report_specification_on_transaction.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report_specification_on_transaction.designer.cs">
+      <DependentUpon>Report_specification_on_transaction.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="POP_ITEM_MASTER[품목].resx">
@@ -224,9 +224,6 @@
     <EmbeddedResource Include="ReportViewr2.resx">
       <DependentUpon>ReportViewr2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_specification_on_transaction.resx">
-      <DependentUpon>Report_specification_on_transaction.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -242,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report_LotBacodeFERT.resx">
       <DependentUpon>Report_LotBacodeFERT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report_specification_on_transaction.resx">
+      <DependentUpon>Report_specification_on_transaction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
