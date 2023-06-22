@@ -70,34 +70,34 @@ namespace KDTB_FORMS
 
             // 원자재 의 입/출고 이력을 확인.
             _GridUtil.InitializeGrid(this.grid2);
-            _GridUtil.InitColumnUltraGrid(grid2, "PLANTCODE", "공장", GridColDataType_emu.VarChar, 100, Infragistics.Win.HAlign.Left, false, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "INOUTDATE", "입출일자", GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "ITEMCODE", "품목", GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, false, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "ITEMNAME", "품명", GridColDataType_emu.VarChar, 100, Infragistics.Win.HAlign.Left, false, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "LOTNO", "LOTNO", GridColDataType_emu.VarChar, 140, Infragistics.Win.HAlign.Left, false, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "WHNAME", "창고", GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "INOUTCNAME", "입출유형", GridColDataType_emu.VarChar, 150, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "INOUTFNAME", "입출구분", GridColDataType_emu.VarChar, 80, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "INOUTQTY", "입출수량", GridColDataType_emu.Double, 100, Infragistics.Win.HAlign.Right, true, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "INOUTWNAME", "작업자", GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid2, "MAKEDATE", "등록일시", GridColDataType_emu.DateTime24, 130, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "PLANTCODE",  "공장",      GridColDataType_emu.VarChar, 100, Infragistics.Win.HAlign.Left, false, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "INOUTDATE",  "입출일자",  GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "ITEMCODE",   "품목",      GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, false, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "ITEMNAME",   "품명",      GridColDataType_emu.VarChar, 100, Infragistics.Win.HAlign.Left, false, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "LOTNO",      "LOTNO",     GridColDataType_emu.VarChar, 140, Infragistics.Win.HAlign.Left, false, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "WHNAME",     "창고",      GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "INOUTCNAME", "입출유형",  GridColDataType_emu.VarChar, 150, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "INOUTFNAME", "입출구분",  GridColDataType_emu.VarChar, 80, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "INOUTQTY",   "입출수량",  GridColDataType_emu.Double, 100, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "INOUTWNAME", "작업자",    GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid2, "MAKEDATE",   "등록일시",  GridColDataType_emu.DateTime24, 130, Infragistics.Win.HAlign.Left, true, false);
             _GridUtil.SetInitUltraGridBind(grid2);
 
             // 완제품에 대한 LOT 의 이력.
             _GridUtil.InitializeGrid(this.grid3);
-            _GridUtil.InitColumnUltraGrid(grid3, "PLANTCODE", "공장", GridColDataType_emu.VarChar, 100, Infragistics.Win.HAlign.Left, false, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "INOUTDATE", "입출일자", GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "ITEMCODE", "품목", GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, false, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "ITEMNAME", "품명", GridColDataType_emu.VarChar, 100, Infragistics.Win.HAlign.Left, false, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "LOTNO", "LOTNO", GridColDataType_emu.VarChar, 140, Infragistics.Win.HAlign.Left, false, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "WHNAME", "창고", GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "INOUTCNAME", "입출유형", GridColDataType_emu.VarChar, 150, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "INOUTFNAME", "입출구분", GridColDataType_emu.VarChar, 80, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "INOUTQTY", "입출수량", GridColDataType_emu.Double, 100, Infragistics.Win.HAlign.Right, true, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "INOUTWNAME", "작업자", GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "SHIPNO", "상차/명세번호", GridColDataType_emu.VarChar, 150, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "CARNO", "차량번호", GridColDataType_emu.VarChar, 120, Infragistics.Win.HAlign.Left, true, false);
-            _GridUtil.InitColumnUltraGrid(grid3, "MAKEDATE", "등록일시", GridColDataType_emu.DateTime24, 130, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "PLANTCODE",  "공장",          GridColDataType_emu.VarChar, 100, Infragistics.Win.HAlign.Left, false, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "INOUTDATE",  "입출일자",      GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "ITEMCODE",   "품목",          GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, false, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "ITEMNAME",   "품명",          GridColDataType_emu.VarChar, 100, Infragistics.Win.HAlign.Left, false, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "LOTNO",      "LOTNO",         GridColDataType_emu.VarChar, 140, Infragistics.Win.HAlign.Left, false, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "WHNAME",     "창고",          GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "INOUTCNAME", "입출유형",      GridColDataType_emu.VarChar, 150, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "INOUTFNAME", "입출구분",      GridColDataType_emu.VarChar, 80, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "INOUTQTY",   "입출수량",      GridColDataType_emu.Double, 100, Infragistics.Win.HAlign.Right, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "INOUTWNAME", "작업자",        GridColDataType_emu.VarChar, 130, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "SHIPNO",     "상차/명세번호", GridColDataType_emu.VarChar, 150, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "CARNO",      "차량번호",      GridColDataType_emu.VarChar, 120, Infragistics.Win.HAlign.Left, true, false);
+            _GridUtil.InitColumnUltraGrid(grid3, "MAKEDATE",   "등록일시",      GridColDataType_emu.DateTime24, 130, Infragistics.Win.HAlign.Left, true, false);
             _GridUtil.SetInitUltraGridBind(grid3);
             #endregion
 
@@ -176,8 +176,9 @@ namespace KDTB_FORMS
                 // 제품 입출 이력 조회.
 
                 DataSet dsTemp = helper.FillDataSet("SP00_PP_LotTracking_S2", CommandType.StoredProcedure
-                                                    , helper.CreateParameter("@LOTNO",    grid1.ActiveRow.Cells["LOTNO"].Value.ToString())  // 완제품 LOT
-                                                    , helper.CreateParameter("@MATLOTNO", grid1.ActiveRow.Cells["CLOTNO"].Value.ToString()) // 원자재 LOT
+                                                    , helper.CreateParameter("@PLANTCODE", grid1.ActiveRow.Cells["PLANTCODE"].Value.ToString())  // 공장
+                                                    , helper.CreateParameter("@LOTNO",     grid1.ActiveRow.Cells["LOTNO"].Value.ToString())      // 완제품 LOT
+                                                    , helper.CreateParameter("@MATLOTNO",  grid1.ActiveRow.Cells["CLOTNO"].Value.ToString())     // 원자재 LOT
                                                    );
                 grid2.DataSource = dsTemp.Tables[0];
                 grid3.DataSource = dsTemp.Tables[1];
